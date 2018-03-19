@@ -15,5 +15,10 @@
     "sequelize": "^4.37.1",
     "sequelize-auto-migrations": "^1.0.2",
     "sequelize-cli": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "eslint": "^4.19.0",
+    "eslint-config-google": "^0.9.1"
   }
 }
