@@ -4,7 +4,7 @@ const path = require('path');
 
 const init = (app, data) => {
     app.get('/', (req, res) => {
-        res.render('fullscreen-video');
+        res.render('register');
     });
 
     fs.readdirSync(__dirname)

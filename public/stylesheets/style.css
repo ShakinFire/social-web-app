@@ -63,6 +63,83 @@ header nav a:hover {
   color: #57505C;
 }
 
+/* LOGIN */
+.login {
+  display: flex;
+  justify-content: center;
+}
+
+.log-form {
+  background-color: whitesmoke;
+  margin-top: 5px;
+  color:  #57505C;
+  font-size: 16px;
+  padding: 20px 50px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px grey;
+}
+
+.form-check {
+  color: #57505C;
+  position: relative;
+  bottom: 12px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.login .log-form .form-check label {
+  margin: 8px;
+  font-size: 14px;
+}
+
+.login .log-form .register {
+  color:  #57505C;
+  position: relative;
+  top: 10px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.login .log-form .forgot {
+  color: #57505C;
+  position: relative;
+  top: 10px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+/* REGISTER */
+.register {
+  display: flex;
+  justify-content: center;
+}
+
+.reg-form {
+  background-color: whitesmoke;
+  margin-top: 5px;
+  color:  #57505C;
+  font-size: 16px;
+  padding: 20px 50px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px grey;
+}
+
+.form-check {
+  color: #57505C;
+  position: relative;
+  bottom: 12px;
+  font-style: oblique;
+  font-size: 15px;
+}
+
+.register .reg-form .form-check label {
+  margin: 8px;
+  font-size: 14px;
+}
+
+
 /* VIDEO SECTION */
 .video-section {
   position: relative;

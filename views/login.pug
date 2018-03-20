@@ -1,8 +1,21 @@
-form(action='/login', method='POST')
-  | Username: 
-  input(type='text', name='username')
-  br
-  |   Password: 
-  input(type='password', name='password')
-  br
-  input(type='submit', value='Login')
+extends ./_shared/master
+
+block login
+    div.container
+        div.login
+            form.log-form(action='/login', method='post')
+                div.form-group
+                    label Username:
+                    input.form-control(type='text', name='username', placeholder='Username')
+                div.form-group
+                    label Password:
+                    input.form-control(type='password', name='password', placeholder='Password')
+                div.form-check
+                    input.form-check-input(type='checkbox')
+                    label Remember me
+                div
+                    input.btn.btn-info.btn-block(type='submit', value='Log In')
+                div
+                    a.register(href="#") Register
+                div
+                    a.forgot(href="#") Forgot password?
