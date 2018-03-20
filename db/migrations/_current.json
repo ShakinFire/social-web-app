@@ -10,12 +10,10 @@
                     "seqType": "Sequelize.INTEGER"
                 },
                 "country": {
-                    "allowNull": false,
                     "unique": true,
                     "seqType": "Sequelize.STRING"
                 },
                 "city": {
-                    "allowNull": false,
                     "unique": true,
                     "seqType": "Sequelize.STRING"
                 },
@@ -171,7 +169,6 @@
                     "seqType": "Sequelize.STRING"
                 },
                 "total_likes": {
-                    "allowNull": false,
                     "seqType": "Sequelize.DECIMAL"
                 },
                 "createdAt": {
@@ -205,32 +202,31 @@
                     "seqType": "Sequelize.INTEGER"
                 },
                 "email": {
+                    "validate": {
+                        "isEmail": true
+                    },
                     "allowNull": false,
+                    "unique": true,
                     "seqType": "Sequelize.STRING"
                 },
                 "username": {
                     "allowNull": false,
-                    "seqType": "Sequelize.STRING"
+                    "unique": true,
+                    "seqType": "Sequelize.STRING(35)"
                 },
                 "first_name": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "Sequelize.STRING(30)"
                 },
                 "last_name": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "Sequelize.STRING(30)"
                 },
                 "profile_pic": {
-                    "allowNull": false,
                     "seqType": "Sequelize.STRING"
                 },
                 "description": {
-                    "allowNull": false,
                     "seqType": "Sequelize.TEXT"
                 },
                 "age": {
-                    "allowNull": false,
-                    "unique": true,
                     "seqType": "Sequelize.DECIMAL"
                 },
                 "createdAt": {
@@ -242,7 +238,7 @@
                     "seqType": "Sequelize.DATE"
                 },
                 "AddressId": {
-                    "allowNull": false,
+                    "allowNull": true,
                     "references": {
                         "model": "Addresses",
                         "key": "id"
@@ -252,7 +248,7 @@
                     "seqType": "Sequelize.INTEGER"
                 },
                 "GenderId": {
-                    "allowNull": false,
+                    "allowNull": true,
                     "references": {
                         "model": "Genders",
                         "key": "id"

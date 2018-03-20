@@ -8,12 +8,13 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       },
     title: {
+      /* eslint-disable */
       type: DataTypes.STRING,
+      /* eslint-enable */
       allowNull: false,
       },
     total_likes: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
       },
   }, {});
   Post.associate = function(models) {

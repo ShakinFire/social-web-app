@@ -19,8 +19,8 @@ var Sequelize = require('sequelize');
 
 var info = {
     "revision": 1,
-    "name": "base-schema",
-    "created": "2018-03-18T21:30:24.365Z",
+    "name": "fixed-validation-issues-final",
+    "created": "2018-03-20T13:38:52.817Z",
     "comment": ""
 };
 
@@ -37,13 +37,11 @@ var migrationCommands = [{
                 },
                 "country": {
                     "type": Sequelize.STRING,
-                    "unique": true,
-                    "allowNull": false
+                    "unique": true
                 },
                 "city": {
                     "type": Sequelize.STRING,
-                    "unique": true,
-                    "allowNull": false
+                    "unique": true
                 },
                 "createdAt": {
                     "type": Sequelize.DATE,
@@ -125,32 +123,31 @@ var migrationCommands = [{
                 },
                 "email": {
                     "type": Sequelize.STRING,
-                    "allowNull": false
+                    "unique": true,
+                    "allowNull": false,
+                    "validate": {
+                        "isEmail": true
+                    }
                 },
                 "username": {
-                    "type": Sequelize.STRING,
+                    "type": Sequelize.STRING(35),
+                    "unique": true,
                     "allowNull": false
                 },
                 "first_name": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false
+                    "type": Sequelize.STRING(30)
                 },
                 "last_name": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false
+                    "type": Sequelize.STRING(30)
                 },
                 "profile_pic": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false
+                    "type": Sequelize.STRING
                 },
                 "description": {
-                    "type": Sequelize.TEXT,
-                    "allowNull": false
+                    "type": Sequelize.TEXT
                 },
                 "age": {
-                    "type": Sequelize.DECIMAL,
-                    "unique": true,
-                    "allowNull": false
+                    "type": Sequelize.DECIMAL
                 },
                 "createdAt": {
                     "type": Sequelize.DATE,
@@ -168,7 +165,7 @@ var migrationCommands = [{
                         "model": "Addresses",
                         "key": "id"
                     },
-                    "allowNull": false
+                    "allowNull": true
                 },
                 "GenderId": {
                     "type": Sequelize.INTEGER,
@@ -178,7 +175,7 @@ var migrationCommands = [{
                         "model": "Genders",
                         "key": "id"
                     },
-                    "allowNull": false
+                    "allowNull": true
                 }
             },
             {}
@@ -204,8 +201,7 @@ var migrationCommands = [{
                     "allowNull": false
                 },
                 "total_likes": {
-                    "type": Sequelize.DECIMAL,
-                    "allowNull": false
+                    "type": Sequelize.DECIMAL
                 },
                 "createdAt": {
                     "type": Sequelize.DATE,

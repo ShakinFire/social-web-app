@@ -2,13 +2,13 @@
 module.exports = (sequelize, DataTypes) => {
   const Address = sequelize.define('Address', {
     country: {
+      /* eslint-disable */
       type: DataTypes.STRING,
-      allowNull: false,
+      /* eslint-enable */
       unique: true,
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: false,
       unique: true,
     },
   }, {});

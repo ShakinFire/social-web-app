@@ -1,38 +1,21 @@
-const users = [
-    {
-        name: 'Georgi',
-        password: 'goshkata1',
-        id: '1',
-    },
-    {
-        name: 'Simo',
-        password: 'simkata1',
-        id: '2',
-    },
-    {
-        name: 'Kalin',
-        password: 'kalinkata1',
-        id: '3',
-    },
-];
+const {
+    user,
+    address,
+    follower,
+    comment,
+    gender,
+    like,
+    post,
+} = require('../../db/models');
 
-let currentId = 3;
-
-const findAll = () => {
-    return users;
-};
-
-const findById = (id) => {
-    return users.find((user) => user.id === id);
-};
-
-const createUser = (user) => {
-    user.id = (currentId += 1);
-    users.push(user);
-};
+const Data = require('./generic-data');
 
 module.exports = {
-    findAll,
-    findById,
-    createUser,
+    user: new Data(user),
+    address: new Data(address),
+    follower: new Data(follower),
+    comment: new Data(comment),
+    gender: new Data(gender),
+    like: new Data(like),
+    post: new Data(post),
 };

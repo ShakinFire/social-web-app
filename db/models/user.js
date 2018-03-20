@@ -1,36 +1,35 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
+    /* eslint-disable */
     email: {
       type: DataTypes.STRING,
+      validate: {
+        isEmail: true,
+      },
       allowNull: false,
+      unique: true,
     },
     username: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(35),
       allowNull: false,
+      unique: true,
     },
     first_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.STRING(30),
     },
     last_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.STRING(30),
     },
     profile_pic: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     description: {
-      /* eslint-disable */
       type: DataTypes.TEXT,
-      /* eslint-enable */
-      allowNull: false,
     },
+    /* eslint-enable */
     age: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
-      unique: true,
     },
   },
    {});
@@ -45,16 +44,10 @@ module.exports = (sequelize, DataTypes) => {
     } = models;
 
     User.belongsTo(Address, {
-      foreignKey: {
-        allowNull: false,
-      },
       onDelete: 'CASCADE',
     });
 
     User.belongsTo(Gender, {
-      foreignKey: {
-        allowNull: false,
-      },
       onDelete: 'CASCADE',
     });
 
