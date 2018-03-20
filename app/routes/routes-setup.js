@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const init = (app) => {
+const init = (app, data) => {
     app.get('/', (req, res) => {
         res.render('fullscreen-video');
     });
@@ -13,7 +13,7 @@ const init = (app) => {
         .map((filename) => path.join(__dirname, filename))
         .forEach((modulePath) => {
             const route = require(modulePath);
-            route.init(app);
+            route.init(app, data);
         });
 };
 
