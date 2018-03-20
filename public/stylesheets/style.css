@@ -17,8 +17,18 @@ time, mark, audio, video {
 	border: 0;
 }
 
+html { /* used for sticky footer */
+  height: 100%;
+  box-sizing: border-box;
+}
+
 body {
   background: #E7E4F4;
+
+  /* used for sticky footer */
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 19.8rem;
 }
 
 a {
@@ -188,11 +198,27 @@ header nav a:hover {
   border-bottom: 2px solid rgb(98, 198, 255);
 }
 
+/* HOME-LOGGED */
+textarea {
+  resize: none;
+  padding: 10px;
+  font-size: 16px;
+  margin: 30px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
 /* FOOTER */
 footer {
   background: #7F8DAD;
   padding: 30px 0 15px 0;
   color: white;
+
+  /* used for sticky footer */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 footer .footer-links p {

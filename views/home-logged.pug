@@ -1,0 +1,6 @@
+extends ./_shared/master
+
+block content
+    div.container
+        form(action="/home-logged" method="post")
+            textarea(name="post" placeholder="Whats on your mind" rows="1").col-lg-4#post-message

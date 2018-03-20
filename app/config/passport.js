@@ -5,10 +5,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const init = (app, data) => {
-
     // defining the strategy
     const strategy = new LocalStrategy((username, password, done) => {
-
         const userData = data.findUserByUsername(username);
 
         if (!userData) {
