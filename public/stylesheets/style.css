@@ -80,43 +80,78 @@ header nav a:hover {
 }
 
 .log-form {
-  background-color: whitesmoke;
   margin-top: 5px;
   color:  #57505C;
   font-size: 16px;
   padding: 20px 50px;
-  margin: 10px 20px;
-  border-radius: 10px;
-  box-shadow: 10px 10px 15px grey;
+}
+
+.login .login-wrapper {
+  margin: 80px 0;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px rgb(117, 117, 117);
+  background-color: whitesmoke;
+}
+
+.login h1 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #57505C;
+}
+
+.login input {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  font-size: 17px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #57505C;
+  border-radius: 0;
+}
+
+.login .form-group input {
+  width: 100%;
+  display: block;
 }
 
 .form-check {
   color: #57505C;
-  position: relative;
-  bottom: 12px;
-  text-decoration: none;
-  font-size: 15px;
+  margin-top: 25px;
 }
 
 .login .log-form .form-check label {
-  margin: 8px;
-  font-size: 14px;
+  margin-left: 8px;
+  font-size: 12px;
 }
 
-.login .log-form .register {
-  color:  #57505C;
-  position: relative;
-  top: 10px;
-  text-decoration: none;
-  font-size: 15px;
+.login .login-btn {
+  background: #57505C;
+  color: white;
+  border: 0px;
+  border-radius: 3px;
+  margin: 20px 0;
+}
+
+.login .login-btn:hover {
+  background: rgb(125, 116, 131);
+}
+
+.login .forgot-wrapper {
+  text-align: center;
 }
 
 .login .log-form .forgot {
   color: #57505C;
-  position: relative;
-  top: 10px;
-  text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.login .log-form .forgot:hover {
+  color: rgb(117, 114, 114);
 }
 
 /* REGISTER */
