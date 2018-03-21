@@ -1,15 +1,9 @@
 const passport = require('passport');
 
-const init = (app, data) => {
-    app.get('/login', (req, res) => {
-        console.log(req.session);
-        if (req.user) {
-            res.send('You have already logged in.');
-        } else {
-            res.render('login');
-        }
-    });
+const init = (app, controllers) => {
+    const controller = controllers.authentication;
 
+    app.get('/login', controller.login);
     app.post('/login', passport.authenticate('local', {
             successRedirect: '/',
             failureRedirect: '/login',
