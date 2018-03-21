@@ -1,4 +1,3 @@
-const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 
@@ -8,23 +7,20 @@ const init = (app, data) => {
     // defining the strategy
     const strategy = new LocalStrategy((username, password, done) => {
         const userData = data.findUserByUsername(username);
-
         if (!userData) {
             return done(null, false);
         }
-
-        if (!userData.password === password) {
+        if (!(userData.password === password)) {
             return done(null, false);
         }
-
         return done(null, userData);
     });
 
     passport.use(strategy);
 
-    app.use(cookieParser());
     app.use(session({
         secret: 'laniakea_key',
+        name: 'laniakea_sid',
     }));
     app.use(passport.initialize());
     app.use(passport.session());
