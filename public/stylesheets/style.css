@@ -1,4 +1,4 @@
-/* GLOBALS */
+/* ================================= GLOBALS ================================= */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -43,7 +43,7 @@ ul {
   list-style-type: none;
 }
 
-/* NAVIGATION */
+/* ================================= NAVIGATION ================================= */
 header {
   background: #7F8DAD;
 }
@@ -73,7 +73,14 @@ header nav a:hover {
   color: #57505C;
 }
 
-/* LOGIN */
+/* ================================= LOGIN / REGISTER ================================= */
+.bg-img {
+  position: relative;  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .login {
   display: flex;
   justify-content: center;
@@ -83,7 +90,7 @@ header nav a:hover {
   margin-top: 5px;
   color:  #57505C;
   font-size: 16px;
-  padding: 20px 50px;
+  padding: 50px 50px;
 }
 
 .login .login-wrapper {
@@ -96,7 +103,6 @@ header nav a:hover {
 .login h1 {
   text-align: center;
   margin-top: 30px;
-  margin-bottom: 20px;
   font-weight: 600;
   color: #57505C;
 }
@@ -140,52 +146,33 @@ header nav a:hover {
   background: rgb(125, 116, 131);
 }
 
-.login .forgot-wrapper {
+.login .forgot-register-wrapper {
   text-align: center;
 }
 
-.login .log-form .forgot {
+.login .log-form a {
   color: #57505C;
-  font-size: 14px;
+  font-size: 13px;
   text-decoration: underline;
+  display: block;
+  margin-bottom: 10px;
 }
 
-.login .log-form .forgot:hover {
+.login .log-form a:hover {
   color: rgb(117, 114, 114);
 }
 
-/* REGISTER */
-.register {
+.login .register {
+  margin-right: 6px;
+  font-size: 13px;
+}
+
+.login .sign-up-field {
   display: flex;
   justify-content: center;
 }
 
-.reg-form {
-  background-color: whitesmoke;
-  margin-top: 5px;
-  color:  #57505C;
-  font-size: 16px;
-  padding: 20px 50px;
-  margin: 10px 20px;
-  border-radius: 10px;
-  box-shadow: 10px 10px 15px grey;
-}
-
-.form-check {
-  color: #57505C;
-  position: relative;
-  bottom: 12px;
-  font-style: oblique;
-  font-size: 15px;
-}
-
-.register .reg-form .form-check label {
-  margin: 8px;
-  font-size: 14px;
-}
-
-
-/* VIDEO SECTION */
+/* ================================= VIDEO SECTION ================================= */
 .video-section {
   position: relative;
   height: 750px; /* NOTE: when creating the responsive design, lower that value */
@@ -233,7 +220,7 @@ header nav a:hover {
   border-bottom: 2px solid rgb(98, 198, 255);
 }
 
-/* HOME-LOGGED */
+/* ================================= HOME-LOGGED ================================= */
 textarea {
   resize: none;
   padding: 10px;
@@ -243,7 +230,7 @@ textarea {
   overflow: hidden;
 }
 
-/* FOOTER */
+/* ================================= FOOTER ================================= */
 footer {
   background: #7F8DAD;
   padding: 30px 0 15px 0;
