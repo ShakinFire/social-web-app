@@ -5,7 +5,7 @@ const path = require('path');
 const init = (app, data) => {
     app.get('/', (req, res) => {
         if (req.user) {
-            res.send('You are logged.');
+            res.render('home-logged');
         } else {
             res.render('fullscreen-video');
         }

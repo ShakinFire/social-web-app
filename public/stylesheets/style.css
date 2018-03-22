@@ -221,13 +221,35 @@ header nav a:hover {
 }
 
 /* ================================= HOME-LOGGED ================================= */
-textarea {
+.home-log textarea {
   resize: none;
-  padding: 10px;
+  padding: 5px 5px;
+  margin-top: 20px;
   font-size: 16px;
-  margin: 30px;
-  box-sizing: border-box;
   overflow: hidden;
+}
+
+.home-log .latest-activities {
+  padding: 7px 7px;
+  background: white;
+  margin: 20px 0;
+  border-radius: 3px;
+  box-shadow: 1px 1px 5px rgb(117, 117, 117);
+}
+
+.home-log .latest-activities p {
+  color: gray;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.home-log .user-info {
+  display: flex;
+}
+
+.home-log .user-info img {
+  width: 40px;
+  height: 40px;
 }
 
 /* ================================= FOOTER ================================= */
