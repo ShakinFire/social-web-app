@@ -11,12 +11,32 @@ const init = (app, data) => {
             res.render('login');
         }
     });
+
     app.post('/login', passport.authenticate('local', {
             successRedirect: '/',
             failureRedirect: '/login',
             failureFlash: false,
         })
     );
+
+    app.get('/register', (req, res) => {
+        if (authController.isLoggedIn(req.user)) {
+            res.redirect('/');
+        } else {
+            res.render('register');
+        }
+    });
+
+    app.post('/register', (req, res) => {
+        const userData = req.body;
+        const isValid = authController.register(userData);
+        res.send(isValid);
+    });
+
+    app.get('/logout', (req, res) => {
+        req.logout();
+        res.redirect('/');
+    });
 };
 
 module.exports = {

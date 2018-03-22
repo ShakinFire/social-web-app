@@ -26,6 +26,10 @@ body {
   background: rgb(241, 240, 248);
   font-family: 'Roboto', sans-serif;
 
+  /* for background img covering the rest of the space to footer */
+  display: flex;
+  flex-flow: column;
+
   /* used for sticky footer */
   position: relative;
   min-height: 100%;
@@ -78,10 +82,13 @@ header nav a:hover {
 
 /* ================================= LOGIN / REGISTER ================================= */
 .bg-img {
-  position: relative;  
+  position: relative;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  /* for background img covering the rest of the space to footer (body reference)*/
+  flex: 1 1 auto;
 }
 
 .login {
