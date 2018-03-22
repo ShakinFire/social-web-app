@@ -6,7 +6,7 @@ const init = (app, data) => {
 
     app.get('/login', (req, res) => {
         if (authController.isLoggedIn(req.user)) {
-            res.redirect('/');
+            res.render('home-logged');
         } else {
             res.render('login');
         }
