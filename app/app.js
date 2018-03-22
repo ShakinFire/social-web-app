@@ -3,10 +3,10 @@ const app = express();
 
 const data = require('./data/data');
 const exampleData = require('./data/example-data');
-const controllers = require('./controllers')(exampleData);
+// const controllers = require('./controllers');
 
 require('./config/express').init(app);
 require('./config/passport').init(app, exampleData);
-require('./routes').init(app, controllers);
+require('./routes').init(app, data);
 
 app.listen(3001);

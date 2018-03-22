@@ -1,10 +1,16 @@
-const init = (app, data) => {
+const AuthController = require('../controllers/authentication');
+
+const init = (app, data, controllers) => {
+    const authController = new AuthController(data);
+
     app.get('/register', (req, res) => {
         res.render('register');
     });
 
     app.post('/register', (req, res) => {
-        res.send('Registration not ready yet.');
+        const userData = req.body;
+        const isValid = authController.register(userData);
+        res.send(isValid);
     });
 };
 
