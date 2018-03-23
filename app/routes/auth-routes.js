@@ -1,4 +1,5 @@
 const passport = require('passport');
+
 const AuthController = require('../controllers/authentication');
 
 const init = (app, data) => {
@@ -27,9 +28,19 @@ const init = (app, data) => {
         }
     });
 
-    app.post('/register', (req, res) => {
+    app.post('/register', async (req, res) => {
         const userData = req.body;
-        authController.register(userData);
+        try {
+            await authController.register(userData);
+            res.redirect('/');
+        } catch (err) {
+            console.log(err.parent.sqlMessage);
+            const reason =
+            err.Error.includes('username') ? 'username' : 'email';
+            res.send(
+                `ERROR: There is already a user registered with that ${reason}
+            `);
+        }
     });
 
     app.get('/logout', (req, res) => {

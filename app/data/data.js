@@ -1,3 +1,6 @@
+const Data = require('./generic-data');
+const UserData = require('./user-data');
+
 const {
     User,
     Address,
@@ -8,10 +11,8 @@ const {
     Post,
 } = require('../../db/models');
 
-const Data = require('./generic-data');
-
 module.exports = {
-    user: new Data(User),
+    user: new UserData(User),
     address: new Data(Address),
     follower: new Data(Follower),
     comment: new Data(Comment),
