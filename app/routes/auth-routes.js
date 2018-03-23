@@ -29,8 +29,7 @@ const init = (app, data) => {
 
     app.post('/register', (req, res) => {
         const userData = req.body;
-        const isValid = authController.register(userData);
-        res.send(isValid);
+        authController.register(userData);
     });
 
     app.get('/logout', (req, res) => {

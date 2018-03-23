@@ -1,4 +1,5 @@
 $(function() {
+    /* AUTO HEIGHT SET FOR TEXTAREA */
     $('#post-message').on('input', function() {
         var minHeight = parseInt($(this).css('min-height'));
         $(this).css('height', minHeight + 'px');
@@ -6,6 +7,8 @@ $(function() {
         $(this).css('height', scrollHeight + 'px');
     });
 
+
+    /* RANDOM BACKGROUND IMAGE */
     var images = [
         '../img/img1.jpeg',
         '../img/img2.jpg',
@@ -19,6 +22,9 @@ $(function() {
     var bgImg = 'url(' + images[randomNumber] + ')';
 
     $('.bg-img').css({'background-image':bgImg});
+
+    /* ACTIVE INPUT FIELD */
+    $('#active-window').focus();
 
     // TODO: REFACTOR THE CODE TO BE IN MODULES BEFORE IT GROWS AND KILL US
 });

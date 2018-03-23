@@ -1,5 +1,5 @@
 class AuthController {
-    constuctor(data) {
+    constructor(data) {
         this.data = data;
     }
 
@@ -11,8 +11,12 @@ class AuthController {
     }
 
     register(user) {
-        const isValid = this._validate(user);
-        return isValid;
+       if (this._validate(user)) {
+            user.password = user.password[0];
+            this.data.user.createCol(user);
+            return user;
+       }
+       return false;
     }
 
     _validate(user) {

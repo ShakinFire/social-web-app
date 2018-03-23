@@ -237,7 +237,7 @@ header nav a:hover {
   background: white;
   margin-top: 15px;
   border-radius: 3px;
-  box-shadow: 1px 1px 5px rgb(117, 117, 117);
+  box-shadow: 0 0 5px rgb(117, 117, 117);
 }
 
 .home-log form .text-wrapper {
@@ -283,7 +283,7 @@ header nav a:hover {
   background: white;
   margin: 15px 0;
   border-radius: 3px;
-  box-shadow: 1px 1px 5px rgb(117, 117, 117);
+  box-shadow: 0 0 5px rgb(117, 117, 117);
 }
 
 .home-log .latest-activities .activities-title {

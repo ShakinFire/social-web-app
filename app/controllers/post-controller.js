@@ -9,6 +9,14 @@ class PostController {
         }
         return false;
     }
+
+    validate(postInfo) {
+        const postContent = postInfo.post_content;
+        if (postContent.length === 0) {
+            return false;
+        }
+        // TODO: ESCAPE CHARACTERS
+    }
 }
 
 module.exports = PostController;
