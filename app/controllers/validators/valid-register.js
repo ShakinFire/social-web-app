@@ -1,5 +1,5 @@
 const validate = (user) => {
-    // TO-DO: when isValid === false return additional information
+    // TO-DO: if isValid === false return additional information
     // about the check which failed. Put the "failed check" 's name
     // as property of an object.
 

@@ -1,0 +1,25 @@
+extends ./_shared/master
+
+append scripts
+    script(src="javascript/profile-menu.js")
+
+block content
+        div.container.profile-logged-main
+            div.user-main-images
+                div.cover-image
+                    h1 cover-image
+                    div.profile-image
+                        h3 profile-image
+            div.nav-profile-horizontal
+                ul.nav.nav-tabs.nav-justified
+                    li.active(name='home')
+                        a(href='#') Home (Profile)
+                    li(role='presentation', name='settings')
+                        a(href='/profile/settings') Settings
+                    li(role='presentation', name='followers')
+                        a(href='#') Followers
+                div.chosen-tab-context
+                    block activeTabContent
+                        h1 
+                            | Home (Profile) is chosen by default.
+                            | Some text or other stuff here.

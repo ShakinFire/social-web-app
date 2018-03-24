@@ -34,9 +34,8 @@ const init = (app, data) => {
             await authController.register(userData);
             res.redirect('/');
         } catch (err) {
-            console.log(err.parent.sqlMessage);
             const reason =
-            err.Error.includes('username') ? 'username' : 'email';
+            err.parent.sqlMessage.includes('username') ? 'username' : 'email';
             res.send(
                 `ERROR: There is already a user registered with that ${reason}
             `);

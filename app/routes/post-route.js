@@ -6,9 +6,9 @@ const init = (app, data) => {
         if (postController.isLoggedIn(req.user)) {
             const postData = req.body;
             postController.validate(postData);
-            // TODO: Continue the logic in the controller for validation and DB
+            // TO-DO: Continue the logic in the controller for validation and DB
         } else {
-            // TODO: Add error message
+            // TO-DO: Add error message
             res.redirect('/');
         }
     });
