@@ -164,10 +164,6 @@
                     "allowNull": false,
                     "seqType": "Sequelize.TEXT"
                 },
-                "title": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.STRING"
-                },
                 "total_likes": {
                     "seqType": "Sequelize.DECIMAL"
                 },
@@ -212,6 +208,10 @@
                 "username": {
                     "allowNull": false,
                     "unique": true,
+                    "seqType": "Sequelize.STRING(35)"
+                },
+                "password": {
+                    "allowNull": false,
                     "seqType": "Sequelize.STRING(35)"
                 },
                 "first_name": {
@@ -329,5 +329,5 @@
             "indexes": []
         }
     },
-    "revision": 1
+    "revision": 2
 }

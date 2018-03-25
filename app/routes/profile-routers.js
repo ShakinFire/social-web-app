@@ -23,11 +23,11 @@ const init = (app, data) => {
         .get('/home', (req, res) => {
             res.render('profile-logged');
         })
+        .get('/posts', (req, res) => {
+            res.render('_profile/posts');
+        })
         .get('/settings', (req, res) => {
             res.render('_profile/settings');
-        })
-        .get('/followers', (req, res) => {
-            res.render('_profile/followers');
         });
 
     router.get('/:public_username', (req, res) => {

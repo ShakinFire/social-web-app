@@ -13,11 +13,11 @@ block content
             div.nav-profile-horizontal
                 ul.nav.nav-tabs.nav-justified
                     li.active(name='home')
-                        a(href='#') Home (Profile)
+                        a(href='#') Home
+                    li(role='presentation', name='posts')
+                        a(href='#') Posts & Activity
                     li(role='presentation', name='settings')
-                        a(href='/profile/settings') Settings
-                    li(role='presentation', name='followers')
-                        a(href='#') Followers
+                        a(href='#') Settings & Privacy
                 div.chosen-tab-context
                     block activeTabContent
                         h1 

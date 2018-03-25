@@ -223,6 +223,9 @@
                 "profile_pic": {
                     "seqType": "Sequelize.STRING"
                 },
+                "cover_pic": {
+                    "seqType": "Sequelize.STRING"
+                },
                 "description": {
                     "seqType": "Sequelize.TEXT"
                 },
@@ -329,5 +332,5 @@
             "indexes": []
         }
     },
-    "revision": 2
+    "revision": 3
 }

@@ -28,6 +28,9 @@ module.exports = (sequelize, DataTypes) => {
     profile_pic: {
       type: DataTypes.STRING,
     },
+    cover_pic: {
+      type: DataTypes.STRING,
+    },
     description: {
       type: DataTypes.TEXT,
     },
