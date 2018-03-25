@@ -9,16 +9,17 @@ const init = (app, data) => {
         try {
             const queryResult = await data.user.getUserByUsername(username);
 
-            const userData = queryResult.dataValues;
-            if (!userData) {
+            if (!queryResult) {
                 return done(null, false);
             }
+
+            const userData = queryResult.dataValues;
+
             if (!(userData.password === password)) {
                 return done(null, false);
             }
             return done(null, userData);
         } catch (err) {
-            console.log(err.Parent);
             return done(err);
         }
     });

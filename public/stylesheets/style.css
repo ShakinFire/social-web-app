@@ -317,37 +317,46 @@ header nav a:hover {
 
 /* ================================= PROFILE-LOGGED ================================= */
 .profile-logged-main {
+  position: relative;
+  margin-top: 15px;
   height: auto;
-  border: 1px dotted lightblue;
-}
-
-.profile-logged-main .user-main-images {
-  margin-top: 5px;
-  height: auto;
-  background-color: rgb(0, 163, 204);
-  padding: 5px;
-  border-radius: 5px;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgb(117, 117, 117);
 }
 
 .profile-logged-main .user-main-images .cover-image {
+  margin-top: 15px;
   position: relative;
   height: 200px;
   width: 100%;
-  background-color: rgb(102, 121, 204);
+  background-color: white;
+  border-radius: 3px;
 }
 
-.profile-logged-main .user-main-images .cover-image .profile-image {
+.profile-logged-main .user-main-images .cover-image .cover {
+  height: 200px;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.profile-logged-main .user-main-images .cover-image .profile-image img {
   width: 100px;
   height: 100px;
   background-color: white;
   position: absolute;
   bottom: 10px;
-  left: 10px;
+  left: 20px;
+  border-radius: 20px;
 }
 
 .profile-logged-main .nav-profile-horizontal {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.profile-logged-main .chosen-tab-context {
+  padding: 7px 20px 7px 12px;
 }
 
 /* ================================= FOOTER ================================= */
