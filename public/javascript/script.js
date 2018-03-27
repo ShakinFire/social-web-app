@@ -27,4 +27,15 @@ $(function() {
     $("#active-window").focus();
 
     // TODO: REFACTOR THE CODE TO BE IN MODULES BEFORE IT GROWS AND KILL US
+
+    var proceed = function() {
+        $('.like-btn').on('click', function() {
+            $('#comment-like').append('<input type="hidden" name="type" value="like" />');
+        });
+
+        $('.comment-btn').on('click', function() {
+            $('#comment-like').append('<input type="hidden" name="type" value="comment" />');
+        });
+    }
+    proceed();
 });

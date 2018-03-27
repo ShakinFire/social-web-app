@@ -1,0 +1,23 @@
+div.all-posts.container-style
+    div.post-header
+        img(src="img/default_profile.jpg")
+        p
+            a(href="#")| #{currentUser.username}
+            br
+            | posted #{postInfo.date}
+    div.post-content
+        p
+            | #{postInfo.post_content}
+    div.icons-content
+        form(action="/like" method="post")#comment-like
+            div.row
+                button.like-btn.col-lg-6
+                    div.text-center.btn-wrapper
+                        p
+                            i(class="fa fa-thumbs-o-up" aria-hidden="true")
+                            | Like(#{postInfo.total_likes})
+                button.comment-btn.col-lg-6
+                    div.text-center.btn-wrapper
+                        p
+                            i(class="fa fa-comment-o")
+                            | Comment(0)

@@ -14,7 +14,8 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
-	border: 0;
+  border: 0;
+  box-sizing: border-box;
 }
 
 html { /* used for sticky footer */
@@ -36,12 +37,8 @@ body {
   padding-bottom: 19.8rem;
 }
 
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
+a, a:hover, a:active, a:visited, a:focus {
+  text-decoration:none;
 }
 
 ul {
@@ -231,21 +228,15 @@ header nav a:hover {
 }
 
 /* ================================= HOME-LOGGED ================================= */
-.home-log form {
-  display: flex;
-  justify-content: center;
+.container-style {
   background: white;
   margin-top: 15px;
   border-radius: 3px;
   box-shadow: 0 0 5px rgb(117, 117, 117);
+  padding: 10px 15px;
 }
 
-.home-log form .text-wrapper {
-  width: 90%;
-  padding: 10px 0;
-}
-
-.home-log form label {
+.home-log label {
   font-size: 14px;
   color: rgb(150, 150, 150);
 }
@@ -263,7 +254,7 @@ header nav a:hover {
   margin-top: 10px;
 }
 
-.home-log button {
+.home-log .post-btn {
   margin-top: 10px;
   padding: 5px 15px;
   font-size: 16px;
@@ -274,7 +265,7 @@ header nav a:hover {
   border-radius: 3px;
 }
 
-.home-log button:hover {
+.home-log .post-btn:hover {
   background: rgb(10, 139, 214);
 }
 
@@ -295,7 +286,7 @@ header nav a:hover {
 .home-log .user-info {
   display: flex;
   padding: 10px 0;
-  border-bottom: 1px solid rgb(150, 150, 150);
+  border-bottom: 1px solid rgb(211, 210, 210);
 }
 
 .home-log .user-info img {
@@ -313,6 +304,68 @@ header nav a:hover {
   color: rgb(68, 68, 68);
   font-weight: 600;
   padding-right: 4px;
+}
+
+.home-log .all-posts {
+  padding-bottom: 0;
+}
+
+.home-log .all-posts img {
+  height: 50px;
+  width: 50px;
+  border-radius: 3px; 
+}
+
+.home-log .post-header {
+  display: flex;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(211, 210, 210);
+}
+
+.home-log .post-header p {
+  color: rgb(150, 150, 150);
+  padding-left: 10px;
+}
+
+.home-log .post-header a {
+  color: rgb(68, 68, 68);
+  font-weight: 600;
+}
+
+.home-log .post-content p {
+  padding: 10px 0;
+  border-bottom: 1px solid rgb(211, 210, 210);
+}
+/* 
+.home-log .icons-content {
+  padding-top: 10px;
+} */
+
+.home-log .icons-content p {
+  font-size: 15px;
+  color: rgb(68, 68, 68);
+}
+
+.home-log .icons-content i {
+  font-size: 17px;
+  padding-right: 6px;
+}
+
+.home-log .icons-content button {
+  background: transparent;
+  /* width: 100%;
+  height: 100%; */
+  border: 0;
+}
+
+.home-log .icons-content button {
+  padding-bottom: 8px;
+  padding-top: 12px;
+  border-bottom: 2px solid transparent;
+}
+
+.home-log .icons-content button:hover {
+  border-bottom: 2px solid rgb(10, 139, 214);
 }
 
 /* ================================= PROFILE-LOGGED ================================= */
