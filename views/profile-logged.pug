@@ -5,19 +5,19 @@ append scripts
 
 block content
         div.container.profile-logged-main
-            div.user-main-images
+            div.container-top
                 div.cover-image
                     img#cover-img.cover-img(src= cover_pic)
-                    div.profile-image
-                        img#profile-img.profile-img(src= profile_pic)
-            div.nav-profile-horizontal
-                ul.nav.nav-tabs.nav-justified
-                    li.active(name='home')
-                        a(href='#') Home
-                    li(role='presentation', name='posts')
-                        a(href='#') Posts & Activity
-                    li(role='presentation', name='settings')
-                        a(href='#') Profile Settings & Privacy
+                div.profile-image
+                    img#profile-img.profile-img(src= profile_pic)
+                div.nav-profile-horizontal
+                    ul.nav.nav-tabs.nav-justified
+                        li.active(name='home')
+                            a(href='#') Home
+                        li(role='presentation', name='posts')
+                            a(href='#') Posts & Activity
+                        li(role='presentation', name='settings')
+                            a(href='#') Profile Settings & Privacy
             div.chosen-tab-context
                 div.activeTabContent
                     h1 Home default.

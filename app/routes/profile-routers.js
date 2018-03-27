@@ -1,11 +1,7 @@
-const {
-    upload,
-} = require('../config/multer');
 const Router = require('express').Router;
+const router = new Router();
 
 const UsersController = require('../controllers/users-controller');
-
-const router = new Router();
 
 // middlewares for checking authentication & image URLs.
 const isLoggedIn = (req, res, next) => {
@@ -17,7 +13,8 @@ const isLoggedIn = (req, res, next) => {
 };
 
 const setDomain = (req, res, next) => {
-    // TO-DO: Export it to the config.
+    // TO-DO: Export it to the config
+    // or use req.hostname
     const domain = 'http://localhost:3001';
 
     const user = req.user;
@@ -52,15 +49,15 @@ const init = (app, data) => {
             // for non-logged users.
             res.send(req.params);
         })
-        .post('/upload/', async (req, res) => {
+        .post('/upload', async (req, res) => {
             try {
                 await controller.updateImg(
                     req.user.id, req.file.filename, req.body['which-image']
                 );
+                res.send('/uploads/' + req.file.filename);
             } catch (err) {
                 console.log(err);
             }
-            res.send('/uploads/' + req.file.filename);
         });
 
     app.use('/profile', router);

@@ -12,15 +12,10 @@ $(function () {
             contentType: false, 
             processData: false,
             cache: false,
-            beforeSend:
-                // TO-DO: Put some loading gif and hide it at the success.
-                function () {
-                    $targetImage.css('opacity', '0.5');
-                },
             success:
+                // TO-DO: Put some loading gif and hide it at the success.
                 function(response) {
                     $targetImage.attr('src', response);
-                    $targetImage.css('opacity', '1');
                 },
             error:
                 function(err) {
@@ -30,7 +25,6 @@ $(function () {
     };
 
     function showUploadDialog() {
-
         $imageToBeChanged = $(this);
 
         var $form = $(" #upload-form ");
@@ -40,29 +34,13 @@ $(function () {
 
         $button.click();
 
-        $button.on(" change ", function() {
-            if ($button[0].files.length !== 0) {
+        $button.change(function() {
                 $whichImage.val(targetImage);
                 sendImage($imageToBeChanged, $form);
-            }
         });
     };
 
-    function applyHoverEffect($jQueryObj) {
-        $jQueryObj.mouseenter(function(){
-            $(this).css('opacity', '0.5');
-        }).mouseleave(function() {
-            $(this).css('opacity', '1');
-        });
-    }
-
-    $profileImg = $(" #profile-img ");
-    $coverImg = $(" #cover-img ");
-
-    applyHoverEffect($profileImg);
-    applyHoverEffect($coverImg);
-
-    $profileImg.on(" click ", showUploadDialog);
-    $coverImg.on(" click ", showUploadDialog);
+    $(" #profile-img ").on(" click ", showUploadDialog);
+    $(" #cover-img ").on(" click ", showUploadDialog);
 
 });

@@ -2,77 +2,34 @@
 > social-web-app@0.0.0 start /home/simeon/dev/Telerik/JS-Alpha-TelerikAcademy-2017/social-web-app/social-web-app
 > node ./app/app.js
 
-::1 - - [24/Mar/2018:17:18:30 +0000] "GET /profile HTTP/1.1" 302 46 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-::1 - - [24/Mar/2018:17:18:31 +0000] "GET / HTTP/1.1" 200 2962 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-::1 - - [24/Mar/2018:17:18:34 +0000] "GET /login HTTP/1.1" 200 3498 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`username` = 'Kondio' LIMIT 1;
-::1 - - [24/Mar/2018:17:18:35 +0000] "POST /login HTTP/1.1" 302 46 "http://localhost:3001/login" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:18:35 +0000] "GET / HTTP/1.1" 200 9175 "http://localhost:3001/login" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-********************
-Session {
-  cookie: 
-   { path: '/',
-     _expires: null,
-     originalMaxAge: null,
-     httpOnly: true },
-  passport: { user: 3 } }
-********************
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:18:38 +0000] "GET /profile HTTP/1.1" 200 3245 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-::1 - - [24/Mar/2018:17:20:50 +0000] "GET /profile/settings HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:20:50 +0000] "GET /profile/followers HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:20:52 +0000] "GET /profile/home HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:20:53 +0000] "GET /profile/settings HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:20:53 +0000] "GET /profile/settings HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:20:54 +0000] "GET /profile/followers HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:20:54 +0000] "GET /profile/settings HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:20:54 +0000] "GET /profile/home HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-********************
-Session {
-  cookie: 
-   { path: '/',
-     _expires: null,
-     originalMaxAge: null,
-     httpOnly: true },
-  passport: { user: 3 } }
-********************
-::1 - - [24/Mar/2018:17:27:03 +0000] "GET /profile HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:27:03 +0000] "GET /profile/settings HTTP/1.1" 200 3196 "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:27:04 +0000] "GET /profile/followers HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:27:04 +0000] "GET /profile/settings HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:27:04 +0000] "GET /profile/home HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-::1 - - [24/Mar/2018:17:28:13 +0000] "GET /profile/settings HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:28:13 +0000] "GET /profile/followers HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:28:14 +0000] "GET /profile/settings HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:28:14 +0000] "GET /profile/home HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:28:19 +0000] "GET / HTTP/1.1" 304 - "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
-********************
-Session {
-  cookie: 
-   { path: '/',
-     _expires: null,
-     originalMaxAge: null,
-     httpOnly: true },
-  passport: { user: 3 } }
-********************
-Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 3;
-::1 - - [24/Mar/2018:17:28:23 +0000] "GET /profile HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+::1 - - [27/Mar/2018:20:35:32 +0000] "GET /profile HTTP/1.1" 302 46 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+::1 - - [27/Mar/2018:20:35:33 +0000] "GET / HTTP/1.1" 200 3011 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+::1 - - [27/Mar/2018:20:35:36 +0000] "GET /login HTTP/1.1" 200 3547 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `cover_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`username` = 'test' LIMIT 1;
+::1 - - [27/Mar/2018:20:35:40 +0000] "POST /login HTTP/1.1" 302 46 "http://localhost:3001/login" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `cover_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 16;
+::1 - - [27/Mar/2018:20:35:40 +0000] "GET / HTTP/1.1" 200 3933 "http://localhost:3001/login" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `cover_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 16;
+::1 - - [27/Mar/2018:20:35:43 +0000] "GET /profile HTTP/1.1" 200 3427 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `cover_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 16;
+Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `cover_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 16;
+::1 - - [27/Mar/2018:20:35:43 +0000] "GET /uploads/image-1522166379961.png HTTP/1.1" 404 170 "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+::1 - - [27/Mar/2018:20:35:43 +0000] "GET /uploads/image-1522166465368.jpg HTTP/1.1" 404 170 "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `cover_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 16;
+Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `cover_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 16;
+::1 - - [27/Mar/2018:20:35:43 +0000] "GET /uploads/image-1522166379961.png HTTP/1.1" 404 170 "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+::1 - - [27/Mar/2018:20:35:43 +0000] "GET /uploads/image-1522166465368.jpg HTTP/1.1" 404 170 "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `cover_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 16;
+::1 - - [27/Mar/2018:20:35:46 +0000] "GET /profile/settings HTTP/1.1" 200 1082 "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `cover_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 16;
+Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `cover_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 16;
+::1 - - [27/Mar/2018:20:35:50 +0000] "POST /profile/upload HTTP/1.1" 200 32 "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+Executing (default): UPDATE `Users` SET `profile_pic`='/uploads/image-1522182950633.png',`updatedAt`='2018-03-27 20:35:50' WHERE `id` = 16
+Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `cover_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 16;
+Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `cover_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 16;
+Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `cover_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 16;
+::1 - - [27/Mar/2018:20:35:54 +0000] "POST /profile/upload HTTP/1.1" 200 32 "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+Executing (default): SELECT `id`, `email`, `username`, `password`, `first_name`, `last_name`, `profile_pic`, `cover_pic`, `description`, `age`, `createdAt`, `updatedAt`, `AddressId`, `GenderId` FROM `Users` AS `User` WHERE `User`.`id` = 16;
+::1 - - [27/Mar/2018:20:35:54 +0000] "POST /profile/upload HTTP/1.1" 200 32 "http://localhost:3001/profile" "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
+Executing (default): UPDATE `Users` SET `profile_pic`='/uploads/image-1522182954436.jpg',`updatedAt`='2018-03-27 20:35:54' WHERE `id` = 16
+Executing (default): UPDATE `Users` SET `cover_pic`='/uploads/image-1522182954441.jpg',`updatedAt`='2018-03-27 20:35:54' WHERE `id` = 16

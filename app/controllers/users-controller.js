@@ -19,13 +19,13 @@ class UsersController {
     async updateProfileImg(userId, imgUrl) {
         const userInstance = await this.data.user.getById(userId);
         userInstance.profile_pic = '/uploads/' + imgUrl;
-        userInstance.save();
+        return userInstance.save();
     }
 
     async updateCoverImg(userId, imgUrl) {
         const userInstance = await this.data.user.getById(userId);
         userInstance.cover_pic = '/uploads/' + imgUrl;
-        userInstance.save();
+        return userInstance.save();
     }
 }
 

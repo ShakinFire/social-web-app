@@ -378,33 +378,42 @@ header nav a:hover {
   box-shadow: 0 0 5px rgb(117, 117, 117);
 }
 
-.profile-logged-main .user-main-images .cover-image {
-  margin-top: 15px;
+.profile-logged-main .container-top {
   position: relative;
+}
+
+.profile-logged-main .container-top .cover-image {
+  margin-top: 15px;
   height: 200px;
   width: 100%;
   background-color: white;
   border-radius: 3px;
 }
 
-.profile-logged-main .user-main-images .cover-image .cover-img {
+.profile-logged-main .container-top .cover-image .cover-img {
   height: 200px;
   width: 100%;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
-.profile-logged-main .user-main-images .cover-image .profile-image .profile-img {
-  width: 100px;
-  height: 100px;
-  background-color: white;
+.profile-logged-main .container-top .profile-image {
   position: absolute;
+  width: 150px;
+  height: 150px;
   bottom: 10px;
-  left: 20px;
-  border-radius: 20px;
+  left: 30px;
 }
 
-.profile-logged-main .nav-profile-horizontal {
-  margin-top: 10px;
+.profile-logged-main .container-top .profile-image .profile-img {
+  width: 150px;
+  height: 150px;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+
+.profile-logged-main .container-top .nav-profile-horizontal {
+  margin-left: 15%;
+  margin-top: 5px;
   margin-bottom: 10px;
 }
 
@@ -415,6 +424,8 @@ header nav a:hover {
 .profile-logged-main .chosen-tab-context .upload-form {
   display: none;
 }
+
+/* TO-DO: Add media queries for mobile devices. (profile image) */
 
 /* ================================= FOOTER ================================= */
 footer {
