@@ -1,6 +1,6 @@
 const passport = require('passport');
 
-const AuthController = require('../controllers/authentication');
+const AuthController = require('../controllers/authentication-controller');
 
 const init = (app, data) => {
     const authController = new AuthController(data);

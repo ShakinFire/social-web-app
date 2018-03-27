@@ -1,9 +1,13 @@
+const {
+    upload,
+} = require('../config/multer');
 const Router = require('express').Router;
 
-const controller = require('../controllers/users');
+const UsersController = require('../controllers/users-controller');
 
 const router = new Router();
 
+// middlewares for checking authentication & image URLs.
 const isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated()) {
         next();
@@ -12,34 +16,52 @@ const isLoggedIn = (req, res, next) => {
     }
 };
 
+const setDomain = (req, res, next) => {
+    // TO-DO: Export it to the config.
+    const domain = 'http://localhost:3001';
+
+    const user = req.user;
+
+    req.domain = domain;
+    user.profile_pic = domain + user.profile_pic;
+    user.cover_pic = domain + user.cover_pic;
+    next();
+};
+
 router.use(isLoggedIn);
+router.use(setDomain);
 
 const init = (app, data) => {
+    const controller = new UsersController(data);
     router
-        .get('/', async (req, res) => {
-            const details = await req.session;
-            console.log(details);
-            res.render('profile-logged', {
-                cover_pic: 'http://covertimeline.com/app/template/1035.jpg',
-                profile_pic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQodQEqiu0r3eGFJ_zHaOqZ8oWtXMDn8AIOdyw4mCiVerbA571zQ',
-            });
+        .get('/', (req, res) => {
+            res.render('profile-logged', req.user);
         })
         .get('/home', (req, res) => {
-            res.render('profile-logged');
+            res.render('_profile/home');
         })
         .get('/posts', (req, res) => {
             res.render('_profile/posts');
         })
         .get('/settings', (req, res) => {
             res.render('_profile/settings');
+        })
+        .get('/:public_username', (req, res) => {
+            // TO-DO: Render view for the profile
+            // only with public information available
+            // for non-logged users.
+            res.send(req.params);
+        })
+        .post('/upload/', async (req, res) => {
+            try {
+                await controller.updateImg(
+                    req.user.id, req.file.filename, req.body['which-image']
+                );
+            } catch (err) {
+                console.log(err);
+            }
+            res.send('/uploads/' + req.file.filename);
         });
-
-    router.get('/:public_username', (req, res) => {
-        // TO-DO: Render view for the profile
-        // only with public information available
-        // for non-logged users.
-        res.send(req.params);
-    });
 
     app.use('/profile', router);
 };

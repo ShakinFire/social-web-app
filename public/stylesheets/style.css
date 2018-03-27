@@ -334,13 +334,13 @@ header nav a:hover {
   border-radius: 3px;
 }
 
-.profile-logged-main .user-main-images .cover-image .cover {
+.profile-logged-main .user-main-images .cover-image .cover-img {
   height: 200px;
   width: 100%;
   border-radius: 3px;
 }
 
-.profile-logged-main .user-main-images .cover-image .profile-image img {
+.profile-logged-main .user-main-images .cover-image .profile-image .profile-img {
   width: 100px;
   height: 100px;
   background-color: white;
@@ -357,6 +357,10 @@ header nav a:hover {
 
 .profile-logged-main .chosen-tab-context {
   padding: 7px 20px 7px 12px;
+}
+
+.profile-logged-main .chosen-tab-context .upload-form {
+  display: none;
 }
 
 /* ================================= FOOTER ================================= */

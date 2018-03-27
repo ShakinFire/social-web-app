@@ -7,9 +7,9 @@ block content
         div.container.profile-logged-main
             div.user-main-images
                 div.cover-image
-                    img.cover(src= cover_pic)
+                    img#cover-img.cover-img(src= cover_pic)
                     div.profile-image
-                        img(src= profile_pic)
+                        img#profile-img.profile-img(src= profile_pic)
             div.nav-profile-horizontal
                 ul.nav.nav-tabs.nav-justified
                     li.active(name='home')
@@ -17,9 +17,7 @@ block content
                     li(role='presentation', name='posts')
                         a(href='#') Posts & Activity
                     li(role='presentation', name='settings')
-                        a(href='#') Settings & Privacy
+                        a(href='#') Profile Settings & Privacy
             div.chosen-tab-context
-                block activeTabContent
-                    h1 
-                        | Home (Profile) is chosen by default.
-                        | Some text or other stuff here.
+                div.activeTabContent
+                    h1 Home default.

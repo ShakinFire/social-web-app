@@ -39,10 +39,10 @@ const init = (app, data) => {
         }
     });
 
-    passport.deserializeUser((id, done) => {
-        const user = data.user.getById(id);
+    passport.deserializeUser( async (id, done) => {
+        const user = await data.user.getById(id);
         if (user) {
-            return done(null, user);
+            return done(null, user.dataValues);
         }
         return done(null, false);
     });

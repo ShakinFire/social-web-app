@@ -4,7 +4,7 @@ $(function () {
 
     function getInformation(resource) {
         url = '/profile/' + resource;
-        informationContainer = $('.chosen-tab-context').load(url + ' .chosen-tab-context');
+        informationContainer = $('.chosen-tab-context').load(url);
     };
 
     (function showActiveTab() {
