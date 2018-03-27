@@ -1,10 +1,11 @@
 extends ./_shared/master
-
+append scripts
+    script(src="javascript/scroll-content.js")
+    script(src="javascript/create-post.js")
 block content
     div.container
         div.row.home-log
             div.col-lg-5.col-lg-offset-3
-                //- form(action="/" method="post").container-style
                 div.container-style
                     label
                         | Write a post
@@ -12,29 +13,31 @@ block content
                     button.post-btn
                         | Post
                 div#all-posts-wrapper
-                    div.all-posts.container-style
-                        div.post-header
-                            img(src="img/default_profile.jpg")
-                            p
-                                a(href="#")| Pavcho Pavchov 
-                                br
-                                | posted Feb 9'11 at 12:23
-                        div.post-content
-                            p
-                                | This is my first post! I am so much very cool!
-                        div.icons-content
-                            form(action="/like" method="post")#comment-like
-                                div.row
-                                    button.like-btn.col-lg-6
-                                        div.text-center.btn-wrapper
-                                            p
-                                                i(class="fa fa-thumbs-o-up" aria-hidden="true")
-                                                | Like(0)
-                                    button.comment-btn.col-lg-6
-                                        div.text-center.btn-wrapper
-                                            p
-                                                i(class="fa fa-comment-o")
-                                                | Comment(0)
+                    each post, index in allPosts
+                        div.all-posts.container-style
+                            div.post-header
+                                a(href="#")
+                                    img(src="img/default_profile.jpg")
+                                p
+                                    a(href="#")| #{allUsers[index].username}
+                                    br
+                                    | posted #{post.date}
+                            div.post-content
+                                p.break-fix
+                                    | #{post.post_content}
+                            div.icons-content
+                                form(action="/like" method="post")#comment-like
+                                    div.row
+                                        button.like-btn.col-lg-6
+                                            div.text-center.btn-wrapper
+                                                p
+                                                    i(class="fa fa-thumbs-o-up" aria-hidden="true")
+                                                    | Like(#{post.total_likes})
+                                        button.comment-btn.col-lg-6
+                                            div.text-center.btn-wrapper
+                                                p
+                                                    i(class="fa fa-comment-o")
+                                                    | Comment(0)
             div.col-lg-4
                 //- PROBABLY BETTER TO BE 11
                 div.latest-activities.col-lg-12.pull-right

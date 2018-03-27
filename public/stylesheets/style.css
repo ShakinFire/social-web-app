@@ -236,6 +236,10 @@ header nav a:hover {
   padding: 10px 15px;
 }
 
+.home-log {
+  margin-bottom: 20px;
+}
+
 .home-log label {
   font-size: 14px;
   color: rgb(150, 150, 150);
@@ -332,14 +336,21 @@ header nav a:hover {
   font-weight: 600;
 }
 
-.home-log .post-content p {
+.home-log .post-content {
+  /* for breaking long letter words */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.home-log .post-content .break-fix {
   padding: 10px 0;
   border-bottom: 1px solid rgb(211, 210, 210);
 }
-/* 
-.home-log .icons-content {
-  padding-top: 10px;
-} */
 
 .home-log .icons-content p {
   font-size: 15px;
@@ -353,8 +364,6 @@ header nav a:hover {
 
 .home-log .icons-content button {
   background: transparent;
-  /* width: 100%;
-  height: 100%; */
   border: 0;
 }
 

@@ -1,11 +1,15 @@
 /* globals __dirname __filename */
 const fs = require('fs');
 const path = require('path');
+const Pcontroller = require('../controllers/post-controller');
 
 const init = (app, data) => {
-    app.get('/', (req, res) => {
+    const PostController = new Pcontroller(data);
+    app.get('/', async (req, res) => {
         if (req.user) {
-            res.render('home-logged');
+            const context = await PostController
+                .updateContent(req.query.content);
+            res.render('home-logged', context);
         } else {
             res.render('fullscreen-video');
         }
