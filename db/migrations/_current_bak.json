@@ -221,6 +221,15 @@
                     "seqType": "Sequelize.STRING(30)"
                 },
                 "profile_pic": {
+                    "defaultValue": {
+                        "value": "img/profile/default-profile.jpeg"
+                    },
+                    "seqType": "Sequelize.STRING"
+                },
+                "cover_pic": {
+                    "defaultValue": {
+                        "value": "img/profile/default-cover.jpg"
+                    },
                     "seqType": "Sequelize.STRING"
                 },
                 "description": {
@@ -329,5 +338,5 @@
             "indexes": []
         }
     },
-    "revision": 2
+    "revision": 5
 }

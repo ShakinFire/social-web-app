@@ -34,6 +34,7 @@ const init = (app, data) => {
             await authController.register(userData);
             res.redirect('/');
         } catch (err) {
+            console.log(err);
             const reason =
             err.parent.sqlMessage.includes('username') ? 'username' : 'email';
             res.send(

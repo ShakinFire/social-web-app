@@ -16,7 +16,6 @@ $(function() {
         method: 'GET',
         url: 'profile/image',
         success: function(result) {
-            console.log(result);
             $profileImgAsBtn.css('background-image', "url('" + result + "')");
         },
     });

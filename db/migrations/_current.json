@@ -215,15 +215,27 @@
                     "seqType": "Sequelize.STRING(35)"
                 },
                 "first_name": {
+                    "defaultValue": {
+                        "value": "First name"
+                    },
                     "seqType": "Sequelize.STRING(30)"
                 },
                 "last_name": {
+                    "defaultValue": {
+                        "value": "Last name"
+                    },
                     "seqType": "Sequelize.STRING(30)"
                 },
                 "profile_pic": {
+                    "defaultValue": {
+                        "value": "img/profile/default-profile.jpeg"
+                    },
                     "seqType": "Sequelize.STRING"
                 },
                 "cover_pic": {
+                    "defaultValue": {
+                        "value": "img/profile/default-cover.jpg"
+                    },
                     "seqType": "Sequelize.STRING"
                 },
                 "description": {
@@ -332,5 +344,5 @@
             "indexes": []
         }
     },
-    "revision": 3
+    "revision": 6
 }

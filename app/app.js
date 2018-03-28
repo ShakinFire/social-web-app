@@ -9,4 +9,6 @@ require('./config/multer').init(app);
 
 require('./routes').init(app, data);
 
-app.listen(3001);
+const port = process.env.PORT || 3001;
+
+app.listen(port);

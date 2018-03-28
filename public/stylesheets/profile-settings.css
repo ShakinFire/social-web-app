@@ -3,7 +3,7 @@
 }
 
 .profile-logged-main .container-top .profile-image:hover {
-    background-image: url('/img/profile/add_profile.png');
+    background-image: url('/img/add_image.png');
     background-repeat: no-repeat;
     background-size: 40% 40%;
     background-position: 50% 50%;
@@ -14,7 +14,7 @@
 }
 
 .profile-logged-main .container-top .cover-image:hover {
-    background-image: url('/img/profile/add_profile.png');
+    background-image: url('/img/add_image.png');
     background-repeat: no-repeat;
     background-size: 100px 100px;
     background-position: 50% 50%;

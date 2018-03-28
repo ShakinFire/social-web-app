@@ -11,6 +11,8 @@ const init = (app, data) => {
             if (Object.keys(req.query).length === 0
             && req.query.constructor === Object) {
                 const context = await PostController.loadContent();
+                context.first_name = req.user.first_name;
+                context.profile_pic = req.user.profile_pic;
                 res.render('home-logged', context);
             } else {
                 const context = await PostController

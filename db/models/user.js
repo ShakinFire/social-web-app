@@ -21,15 +21,19 @@ module.exports = (sequelize, DataTypes) => {
     },
     first_name: {
       type: DataTypes.STRING(30),
+      defaultValue: 'First name',
     },
     last_name: {
       type: DataTypes.STRING(30),
+      defaultValue: 'Last name',
     },
     profile_pic: {
       type: DataTypes.STRING,
+      defaultValue: 'img/profile/default-profile.jpeg',
     },
     cover_pic: {
       type: DataTypes.STRING,
+      defaultValue: 'img/profile/default-cover.jpg',
     },
     description: {
       type: DataTypes.TEXT,
