@@ -9,7 +9,7 @@ class PostController {
         }
         return false;
     }
-
+    
     _getMonth(month) {
         let result = null;
         switch (month) {
@@ -64,23 +64,25 @@ class PostController {
         return users;
     }
 
-    async updateContent(isScrolled) {
-        if (isScrolled) {
-            // for scrolled updated content
+    async loadContent(offsetQuery) {
+        let allPosts = null;
+        if (offsetQuery) {
+            // on bottom scroll load additional news feed
+            allPosts = await this.data.post.onScroll(+offsetQuery);
         } else {
             // on page load update news feed
-            const allPosts = await this.data.post.sortPostsByDate();
-            allPosts.forEach(async (post) => {
-                post.date = await this._getDate(post);
-            });
-            const allUsers = await this._getUsers(allPosts);
-
-            return {
-                allPosts,
-                allUsers,
-            };
+            allPosts = await this.data.post.sortPostsByDate();
         }
-        return false;
+
+        allPosts.forEach(async (post) => {
+            post.date = await this._getDate(post);
+        });
+        const allUsers = await this._getUsers(allPosts);
+
+        return {
+            allPosts,
+            allUsers,
+        };
     }
 
     async _getDate(postInfo) {

@@ -6,12 +6,14 @@ const init = (app, data) => {
     app.post('/', async (req, res) => {
         if (PostController.isLoggedIn(req.user)) {
             const postData = req.body.content;
-            const postInfo = await PostController.createPost(postData, req.user);
-            const currentUser = await req.user;
+            const allPosts = await PostController
+                .createPost(postData, req.user);
+            const allUsers = await req.user;
 
             const context = {
-                postInfo,
-                currentUser,
+                allPosts,
+                allUsers,
+                condition: true,
             };
 
             res.render('post-content', context);

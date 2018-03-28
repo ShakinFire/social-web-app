@@ -6,14 +6,17 @@ const Pcontroller = require('../controllers/post-controller');
 const init = (app, data) => {
     const PostController = new Pcontroller(data);
     app.get('/', async (req, res) => {
+        console.log(req.query);
         if (req.user) {
-            const context = await PostController
-                .updateContent(req.query.content);
-
-            context.profile_pic = req.user.profile_pic;
-            context.first_name = req.user.first_name;
-
-            res.render('home-logged', context);
+            if (Object.keys(req.query).length === 0
+            && req.query.constructor === Object) {
+                const context = await PostController.loadContent();
+                res.render('home-logged', context);
+            } else {
+                const context = await PostController
+                    .loadContent(req.query.load);
+                res.render('post-content', context);
+            }
         } else {
             res.render('fullscreen-video');
         }

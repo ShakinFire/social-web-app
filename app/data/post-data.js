@@ -13,6 +13,16 @@ class PostData extends Data {
                 ],
             });
     }
+
+    onScroll(queryParam) {
+        return this.Model.findAll({
+            order: [
+                ['createdAt', 'DESC'],
+            ],
+            offset: queryParam,
+            limit: 10,
+        });
+    }
 }
 
 module.exports = PostData;
