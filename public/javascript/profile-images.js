@@ -1,7 +1,7 @@
 /* eslint-disable */
 $(function () {
     
-    function sendImage($targetImage, $formToBeSent) {
+    function sendImage($imgToBeChanged, $formToBeSent, targetImg) {
 
         form = new FormData($formToBeSent[0]);
 
@@ -15,7 +15,12 @@ $(function () {
             success:
                 // TO-DO: Put some loading gif and hide it at the success.
                 function(response) {
-                    $targetImage.attr('src', response);
+                    $imgToBeChanged.attr('src', response);
+
+                    var shouldUpdateNavImg = targetImg === 'profile' ? true : false;
+                    if (shouldUpdateNavImg) {
+                        $profileImgAsBtn.css('background-image', "url('" + response + "')");
+                    }
                 },
             error:
                 function(err) {
@@ -29,14 +34,15 @@ $(function () {
 
         var $form = $(" #upload-form ");
         var $button = $(" #upload-field ");
+
         var $whichImage = $(" #which-image");
         var targetImage = $imageToBeChanged.hasClass('cover-img') ? 'cover' : 'profile';
+        $whichImage.val(targetImage);
 
         $button.click();
 
         $button.change(function() {
-                $whichImage.val(targetImage);
-                sendImage($imageToBeChanged, $form);
+            sendImage($imageToBeChanged, $form, targetImage);
         });
     };
 

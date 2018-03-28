@@ -1,14 +1,15 @@
 mixin nav()
-    header
-        div.container
-            nav
-                div
-                    a(href="/")
-                        h2
-                            | Laniakea
-                div
-                    ul.list-unstyles.list-inline
-                        li
-                            a(href="/register")| SIGN UP
-                        li
-                            a(href="/login")| LOGIN
+        header
+            div.container
+                nav
+                    div
+                        a(href="/")
+                            h2
+                                | Laniakea
+                    block nav-inner-right  
+                        div
+                                ul.list-unstyles.list-inline
+                                    li
+                                        a(href="/register")| SIGN UP
+                                    li
+                                        a(href="/login")| LOGIN

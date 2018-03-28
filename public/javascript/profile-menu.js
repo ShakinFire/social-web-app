@@ -1,7 +1,6 @@
 /* eslint-disable */
 
 $(function () {
-
     function getInformation(resource) {
         url = '/profile/' + resource;
         informationContainer = $('.chosen-tab-context').load(url);
@@ -17,7 +16,7 @@ $(function () {
 
             $(this).addClass('active');
 
-            const requestedResource = $(this).attr('name')
+            var requestedResource = $(this).attr('name');
             getInformation(requestedResource);
         });
     })();

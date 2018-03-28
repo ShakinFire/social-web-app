@@ -1,0 +1,17 @@
+mixin nav-logged()
+    div#nav-right.nav-right
+        .dropdown
+            button.profile-img-as-btn.dropdown-toggle(type='button')
+            a(href="#")
+                span.caret
+            ul.dropdown-menu.dropdown-menu-right
+                li#welcome-message
+                    a(href="#") Hello, <b>#{first_name}</b> !
+                li.divider
+                li
+                    a(href='/') Home
+                li
+                    a(href='profile') My profile
+                li.divider
+                li
+                    a(href="logout") Logout

@@ -427,6 +427,20 @@ header nav a:hover {
 
 /* TO-DO: Add media queries for mobile devices. (profile image) */
 
+/* ================================= DROPDOWN MENU ================================= */
+
+.dropdown .profile-img-as-btn {
+  width: 40px;
+  height: 40px;
+  border: 3px solid white;
+  border-radius: 3px;
+  background-size: 40px 40px;
+}
+
+.dropdown .dropdown-menu #welcome-message {
+  opacity: 0.7;
+}
+
 /* ================================= FOOTER ================================= */
 footer {
   background: #7F8DAD;

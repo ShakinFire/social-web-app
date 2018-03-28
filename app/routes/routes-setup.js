@@ -4,8 +4,11 @@ const path = require('path');
 
 const init = (app, data) => {
     app.get('/', (req, res) => {
-        if (req.user) {
-            res.render('home-logged');
+        if (req.isAuthenticated()) {
+            res.render('home-logged', {
+                first_name: req.user.first_name,
+                profile_pic: req.user.profice_pic,
+            });
         } else {
             res.render('fullscreen-video');
         }

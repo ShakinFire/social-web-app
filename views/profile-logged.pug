@@ -1,7 +1,12 @@
 extends ./_shared/master
+include ./_shared/nav-logged
 
 append scripts
     script(src="javascript/profile-menu.js")
+    script(src="javascript/profile-nav.js")
+
+block nav-inner-right
+    +nav-logged()
 
 block content
         div.container.profile-logged-main

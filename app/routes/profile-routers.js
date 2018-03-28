@@ -3,7 +3,6 @@ const router = new Router();
 
 const UsersController = require('../controllers/users-controller');
 
-// middlewares for checking authentication & image URLs.
 const isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated()) {
         next();
@@ -12,21 +11,7 @@ const isLoggedIn = (req, res, next) => {
     }
 };
 
-const setDomain = (req, res, next) => {
-    // TO-DO: Export it to the config
-    // or use req.hostname
-    const domain = 'http://localhost:3001';
-
-    const user = req.user;
-
-    req.domain = domain;
-    user.profile_pic = domain + user.profile_pic;
-    user.cover_pic = domain + user.cover_pic;
-    next();
-};
-
 router.use(isLoggedIn);
-router.use(setDomain);
 
 const init = (app, data) => {
     const controller = new UsersController(data);
@@ -43,6 +28,9 @@ const init = (app, data) => {
         .get('/settings', (req, res) => {
             res.render('_profile/settings');
         })
+        .get('/image', (req, res) => {
+            res.send(req.user.profile_pic);
+        })
         .get('/:public_username', (req, res) => {
             // TO-DO: Render view for the profile
             // only with public information available
@@ -54,7 +42,7 @@ const init = (app, data) => {
                 await controller.updateImg(
                     req.user.id, req.file.filename, req.body['which-image']
                 );
-                res.send('/uploads/' + req.file.filename);
+                res.send('uploads/' + req.file.filename);
             } catch (err) {
                 console.log(err);
             }
