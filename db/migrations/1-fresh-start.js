@@ -10,17 +10,16 @@ var Sequelize = require('sequelize');
  * createTable "Genders", deps: []
  * createTable "Users", deps: [Addresses, Genders]
  * createTable "Posts", deps: [Users]
- * createTable "Likes", deps: [Posts]
  * createTable "Comments", deps: [Posts, Users]
  * createTable "user_follower", deps: [Users, Followers]
- * createTable "user_like", deps: [Users, Likes]
+ * createTable "user_like_post", deps: [Users, Posts]
  *
  **/
 
 var info = {
     "revision": 1,
-    "name": "fixed-validation-issues-final",
-    "created": "2018-03-20T13:38:52.817Z",
+    "name": "fresh-start",
+    "created": "2018-03-28T16:41:38.942Z",
     "comment": ""
 };
 
@@ -134,6 +133,10 @@ var migrationCommands = [{
                     "unique": true,
                     "allowNull": false
                 },
+                "password": {
+                    "type": Sequelize.STRING(35),
+                    "allowNull": false
+                },
                 "first_name": {
                     "type": Sequelize.STRING(30)
                 },
@@ -141,6 +144,9 @@ var migrationCommands = [{
                     "type": Sequelize.STRING(30)
                 },
                 "profile_pic": {
+                    "type": Sequelize.STRING
+                },
+                "cover_pic": {
                     "type": Sequelize.STRING
                 },
                 "description": {
@@ -196,11 +202,10 @@ var migrationCommands = [{
                     "type": Sequelize.TEXT,
                     "allowNull": false
                 },
-                "title": {
-                    "type": Sequelize.STRING,
-                    "allowNull": false
-                },
                 "total_likes": {
+                    "type": Sequelize.DECIMAL
+                },
+                "total_comments": {
                     "type": Sequelize.DECIMAL
                 },
                 "createdAt": {
@@ -217,39 +222,6 @@ var migrationCommands = [{
                     "onDelete": "CASCADE",
                     "references": {
                         "model": "Users",
-                        "key": "id"
-                    },
-                    "allowNull": false
-                }
-            },
-            {}
-        ]
-    },
-    {
-        fn: "createTable",
-        params: [
-            "Likes",
-            {
-                "id": {
-                    "type": Sequelize.INTEGER,
-                    "autoIncrement": true,
-                    "primaryKey": true,
-                    "allowNull": false
-                },
-                "createdAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
-                },
-                "updatedAt": {
-                    "type": Sequelize.DATE,
-                    "allowNull": false
-                },
-                "PostId": {
-                    "type": Sequelize.INTEGER,
-                    "onUpdate": "CASCADE",
-                    "onDelete": "CASCADE",
-                    "references": {
-                        "model": "Posts",
                         "key": "id"
                     },
                     "allowNull": false
@@ -345,7 +317,7 @@ var migrationCommands = [{
     {
         fn: "createTable",
         params: [
-            "user_like",
+            "user_like_post",
             {
                 "createdAt": {
                     "type": Sequelize.DATE,
@@ -365,12 +337,12 @@ var migrationCommands = [{
                     },
                     "primaryKey": true
                 },
-                "LikeId": {
+                "PostId": {
                     "type": Sequelize.INTEGER,
                     "onUpdate": "CASCADE",
                     "onDelete": "CASCADE",
                     "references": {
-                        "model": "Likes",
+                        "model": "Posts",
                         "key": "id"
                     },
                     "primaryKey": true

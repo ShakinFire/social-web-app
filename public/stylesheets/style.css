@@ -228,6 +228,10 @@ header nav a:hover {
 }
 
 /* ================================= HOME-LOGGED ================================= */
+.hiddenId {
+  display: none;
+}
+
 .container-style {
   background: white;
   margin-top: 15px;
@@ -371,6 +375,10 @@ header nav a:hover {
   padding-bottom: 8px;
   padding-top: 12px;
   border-bottom: 2px solid transparent;
+}
+
+.home-log .icons-content button:focus {
+  outline: none;
 }
 
 .home-log .icons-content button:hover {

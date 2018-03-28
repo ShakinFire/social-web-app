@@ -1,4 +1,7 @@
 const Data = require('./generic-data');
+const {
+    Post,
+ } = require('../../db/models');
 
 class UserData extends Data {
     constructor(userModel) {
@@ -9,6 +12,24 @@ class UserData extends Data {
         return this.Model.findOne({
             where: {
                 username,
+            },
+        });
+    }
+
+    checkIfLiked(postId, userId) {
+        return this.Model.findOne({
+            include: [
+                {
+                    model: Post,
+                    where: {
+                        id: postId,
+                    },
+                },
+            ],
+        },
+        {
+            where: {
+                id: userId,
             },
         });
     }

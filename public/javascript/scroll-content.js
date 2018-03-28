@@ -15,7 +15,7 @@ $(function() {
                         $('#all-posts-wrapper').append(response);
                         setTimeout(function() {
                             work = false;
-                        }, 3000);
+                        }, 2500);
                     },
                 });
             }

@@ -121,36 +121,6 @@
             },
             "indexes": []
         },
-        "Likes": {
-            "tableName": "Likes",
-            "schema": {
-                "id": {
-                    "allowNull": false,
-                    "primaryKey": true,
-                    "autoIncrement": true,
-                    "seqType": "Sequelize.INTEGER"
-                },
-                "createdAt": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.DATE"
-                },
-                "updatedAt": {
-                    "allowNull": false,
-                    "seqType": "Sequelize.DATE"
-                },
-                "PostId": {
-                    "allowNull": false,
-                    "references": {
-                        "model": "Posts",
-                        "key": "id"
-                    },
-                    "onDelete": "CASCADE",
-                    "onUpdate": "CASCADE",
-                    "seqType": "Sequelize.INTEGER"
-                }
-            },
-            "indexes": []
-        },
         "Posts": {
             "tableName": "Posts",
             "schema": {
@@ -165,6 +135,9 @@
                     "seqType": "Sequelize.TEXT"
                 },
                 "total_likes": {
+                    "seqType": "Sequelize.DECIMAL"
+                },
+                "total_comments": {
                     "seqType": "Sequelize.DECIMAL"
                 },
                 "createdAt": {
@@ -309,8 +282,8 @@
             },
             "indexes": []
         },
-        "user_like": {
-            "tableName": "user_like",
+        "user_like_post": {
+            "tableName": "user_like_post",
             "schema": {
                 "createdAt": {
                     "allowNull": false,
@@ -330,10 +303,10 @@
                     "onUpdate": "CASCADE",
                     "seqType": "Sequelize.INTEGER"
                 },
-                "LikeId": {
+                "PostId": {
                     "primaryKey": true,
                     "references": {
-                        "model": "Likes",
+                        "model": "Posts",
                         "key": "id"
                     },
                     "onDelete": "CASCADE",

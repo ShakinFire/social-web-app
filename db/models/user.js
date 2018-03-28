@@ -48,7 +48,6 @@ module.exports = (sequelize, DataTypes) => {
     const {
       Gender,
       Address,
-      Like,
       Follower,
       Comment,
       Post,
@@ -80,8 +79,8 @@ module.exports = (sequelize, DataTypes) => {
       through: 'user_follower',
     });
 
-    User.belongsToMany(Like, {
-      through: 'user_like',
+    User.belongsToMany(Post, {
+      through: 'user_like_post',
     });
   };
   return User;

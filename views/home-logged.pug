@@ -5,6 +5,7 @@ append scripts
     script(src="javascript/profile-nav.js")
     script(src="javascript/scroll-content.js")
     script(src="javascript/create-post.js")
+    script(src="javascript/like-post.js")
 
 block nav-inner-right
     +nav-logged()
@@ -21,30 +22,30 @@ block content
                         | Post
                 div#all-posts-wrapper
                     each post, index in allPosts
+                        span.hiddenId #{post.id}
                         div.all-posts.container-style
                             div.post-header
-                                a(href="#")
+                                a(href="profile/" + allUsers[index].username)
                                     img(src="img/default_profile.jpg")
                                 p
-                                    a(href="#")| #{allUsers[index].username}
+                                    a(href="profile/" + allUsers[index].username)| #{allUsers[index].username}
                                     br
                                     | posted #{post.date}
                             div.post-content
                                 p.break-fix
                                     | #{post.post_content}
                             div.icons-content
-                                form(action="/like" method="post")#comment-like
-                                    div.row
-                                        button.like-btn.col-lg-6
-                                            div.text-center.btn-wrapper
-                                                p
-                                                    i(class="fa fa-thumbs-o-up" aria-hidden="true")
-                                                    | Like(#{post.total_likes})
-                                        button.comment-btn.col-lg-6
-                                            div.text-center.btn-wrapper
-                                                p
-                                                    i(class="fa fa-comment-o")
-                                                    | Comment(0)
+                                div.row
+                                    button(name="type", value="like")#like-btn.col-lg-6
+                                        div.text-center.btn-wrapper
+                                            p
+                                                i(class="fa fa-thumbs-o-up" aria-hidden="true")
+                                                | Like(#{post.total_likes})
+                                    button(name="type", value="comment")#comment-btn.col-lg-6
+                                        div.text-center.btn-wrapper
+                                            p
+                                                i(class="fa fa-comment-o")
+                                                | Comment(#{post.total_comments})
             div.col-lg-4
                 //- PROBABLY BETTER TO BE 11
                 div.latest-activities.col-lg-12.pull-right

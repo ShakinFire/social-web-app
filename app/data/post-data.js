@@ -23,6 +23,17 @@ class PostData extends Data {
             limit: 10,
         });
     }
+
+    totalLikesIncrement(postId) {
+        return this.Model.update({
+            total_likes: Sequelize.literal('total_likes' + 1),
+        },
+        {
+            where: {
+                id: postId,
+            },
+        });
+    }
 }
 
 module.exports = PostData;

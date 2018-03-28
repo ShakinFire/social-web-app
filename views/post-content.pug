@@ -1,53 +1,53 @@
 //- Didnt have time to make it extendable and not repeatable
 //- TODO: if we have time - extend the pug file so there is no repeatable code
 if condition
+    span.hiddenId #{allPosts.id}
     div.all-posts.container-style
         div.post-header
             a(href="profile/" + allUsers.username)
                 img(src="img/default_profile.jpg")
             p
-                a(href="#")| #{allUsers.username}
+                a(href="profile/" + allUsers.username)| #{allUsers.username}
                 br
                 | posted #{allPosts.date}
         div.post-content
             p.break-fix
                 | #{allPosts.post_content}
         div.icons-content
-            form(action="/like" method="post")#comment-like
-                div.row
-                    button.like-btn.col-lg-6
-                        div.text-center.btn-wrapper
-                            p
-                                i(class="fa fa-thumbs-o-up" aria-hidden="true")
-                                | Like(#{allPosts.total_likes})
-                    button.comment-btn.col-lg-6
-                        div.text-center.btn-wrapper
-                            p
-                                i(class="fa fa-comment-o")
-                                | Comment(0)
+            div.row
+                button(name="type", value="like")#like-btn.col-lg-6
+                    div.text-center.btn-wrapper
+                        p
+                            i(class="fa fa-thumbs-o-up" aria-hidden="true")
+                            | Like(#{allPosts.total_likes})
+                button(name="type", value="comment")#comment-btn.col-lg-6
+                    div.text-center.btn-wrapper
+                        p
+                            i(class="fa fa-comment-o")
+                            | Comment(#{allPosts.total_comments})
 else
     each post, index in allPosts
+        span.hiddenId #{post.id}
         div.all-posts.container-style
             div.post-header
                 a(href="profile/" + allUsers[index].username)
                     img(src="img/default_profile.jpg")
                 p
-                    a(href="#")| #{allUsers[index].username}
+                    a(href="profile/" + allUsers[index].username)| #{allUsers[index].username}
                     br
                     | posted #{post.date}
             div.post-content
                 p.break-fix
                     | #{post.post_content}
             div.icons-content
-                form(action="/like" method="post")#comment-like
-                    div.row
-                        button.like-btn.col-lg-6
-                            div.text-center.btn-wrapper
-                                p
-                                    i(class="fa fa-thumbs-o-up" aria-hidden="true")
-                                    | Like(#{post.total_likes})
-                        button.comment-btn.col-lg-6
-                            div.text-center.btn-wrapper
-                                p
-                                    i(class="fa fa-comment-o")
-                                    | Comment(0)
+                div.row
+                    button(name="type", value="like")#like-btn.col-lg-6
+                        div.text-center.btn-wrapper
+                            p
+                                i(class="fa fa-thumbs-o-up" aria-hidden="true")
+                                | Like(#{post.total_likes})
+                    button(name="type", value="comment")#comment-btn.col-lg-6
+                        div.text-center.btn-wrapper
+                            p
+                                i(class="fa fa-comment-o")
+                                | Comment(#{post.total_comments})

@@ -8,7 +8,6 @@ const {
     Follower,
     Comment,
     Gender,
-    Like,
     Post,
 } = require('../../db/models');
 
@@ -18,6 +17,5 @@ module.exports = {
     follower: new Data(Follower),
     comment: new Data(Comment),
     gender: new Data(Gender),
-    like: new Data(Like),
     post: new PostData(Post),
 };

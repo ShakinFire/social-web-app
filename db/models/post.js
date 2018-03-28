@@ -10,6 +10,9 @@ module.exports = (sequelize, DataTypes) => {
     total_likes: {
       type: DataTypes.DECIMAL,
       },
+    total_comments: {
+      type: DataTypes.DECIMAL,
+    }
   }, {});
   Post.associate = function(models) {
     // associations can be defined here
