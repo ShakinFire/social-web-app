@@ -2,20 +2,30 @@
     opacity: 0.5;
 }
 
-.profile-logged-main .container-top .profile-image:hover {
-    background-image: url('/img/add_image.png');
+.profile-logged-main .container-top .profile-image {
+    background-image: url('/img/loading.gif');
     background-repeat: no-repeat;
-    background-size: 40% 40%;
+    background-size: 30px 30px;
     background-position: 50% 50%;
+}
+
+.profile-logged-main .container-top .profile-image-hover:hover {
+    background-image: url('/img/add_image.png');
+    background-size: 50px 50px;
 }
 
 .profile-logged-main .container-top .cover-image .cover-img:hover {
     opacity: 0.5;
 }
 
-.profile-logged-main .container-top .cover-image:hover {
-    background-image: url('/img/add_image.png');
+.profile-logged-main .container-top .cover-image {
+    background-image: url('/img/loading.gif');
     background-repeat: no-repeat;
-    background-size: 100px 100px;
+    background-size: 45px 45px;
     background-position: 50% 50%;
+}
+
+.profile-logged-main .container-top .cover-image-hover:hover {
+    background-image: url('/img/add_image.png');
+    background-size: 100px 100px;
 }

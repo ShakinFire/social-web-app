@@ -1,14 +1,14 @@
 script(src="javascript/profile-images.js")
 link(rel='stylesheet', type='text/css', href='stylesheets/profile-settings.css')
 
-// - Form for submitting new profile or cover picture.
+// - Form for submitting new profile or cover image.
 form#upload-form.upload-form(action="/profile/upload", method="POST", enctype="multipart/form-data")
     input#upload-field.upload-field(accept="image/*", type="file", name="image")
     input#which-image.which-image(type="text", name="which-image")
 
 // - The rest of the settings page.
 div.col-sm-offset-1.col-sm-10
-    form.form-horizontal(action="/profile/update", method="POST")
+    form.form-horizontal.form-update-info(action="/profile/update", method="POST")
         div.form-group
             label(for='first-name') First Name
             input#first-name.form-control(type='text', placeholder='First Name')
@@ -18,3 +18,5 @@ div.col-sm-offset-1.col-sm-10
         div.form-group
             label(for='description') Description
             textarea#description.form-control(rows='3')
+        div.form-group
+            input(type='submit', value="send")

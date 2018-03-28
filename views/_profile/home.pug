@@ -1,1 +1,64 @@
-h1 home here.
+include ./google-maps-location
+
+script(src="javascript/profile-home.js")
+.container-table
+    table.table
+        thead
+            tr
+        tbody
+            tr
+                td
+                    span.field-name#name Name
+                td
+                    span.glyphicon.glyphicon-sunglasses
+                    span.field-value #{first_name} #{last_name}
+            tr
+                td
+                    span.field-name#username Username
+                td
+                    span.glyphicon.glyphicon-user
+                    span.field-value #{username}
+            tr
+                td
+                    span.field-name#email Email
+                td
+                    span.glyphicon.glyphicon-envelope
+                    span.field-value #{email}
+            tr
+                td
+                    span.field-name#description Description
+                td
+                    span.glyphicon.glyphicon-info-sign
+                    span.field-value #{description}
+            tr
+                td
+                    span.field-name#age Age
+                td
+                    span.glyphicon.glyphicon-time
+                    span.field-value #{age}
+            tr
+                td
+                    span.field-name#gender Gender
+                td
+                    span.glyphicon.glyphicon-adjust
+                    span.field-value No info
+            tr
+                td
+                    span.field-name#address Address
+                td
+                    span.glyphicon.glyphicon-map-marker
+                    span.field-value Sofia, Bulgaria
+            tr
+                td
+                    span.field-name#address Followers
+                td
+                    span.glyphicon.glyphicon-comment
+                    span.field-value 
+                        | Open modal onclick
+            tr
+                td
+                    span.field-name#address Last visit (DateTime & Location)
+                td
+                    span.glyphicon.glyphicon-cloud
+                    span.field-value 18:00 GMT, 20.02.2002
+    +map()

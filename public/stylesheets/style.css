@@ -436,6 +436,35 @@ header nav a:hover {
 
 /* TO-DO: Add media queries for mobile devices. (profile image) */
 
+/* ================================= PROFILE-LOGGED-IN-HOME ================================= */
+
+.container-table {
+  position: relative;
+  margin: auto;
+  width: 80%;
+}
+
+.container-table .field-name {
+  position: relative;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.container-table .field-value {
+  position: relative;
+  padding-left: 5px;
+}
+
+.map {
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.map iframe {
+  border-radius: 5px;
+}
+
 /* ================================= DROPDOWN MENU ================================= */
 
 .dropdown .profile-img-as-btn {
@@ -449,6 +478,8 @@ header nav a:hover {
 .dropdown .dropdown-menu #welcome-message {
   opacity: 0.7;
 }
+
+/* ================================= DROPDOWN MENU ================================= */
 
 /* ================================= FOOTER ================================= */
 footer {

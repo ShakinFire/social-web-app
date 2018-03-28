@@ -2,18 +2,13 @@
 
 $(function () {
     function getInformation(resource) {
-        url = '/profile/' + resource;
-        informationContainer = $('.chosen-tab-context').load(url);
+        informationContainer = $('.chosen-tab-context').load('profile/' + resource);
     };
 
     (function showActiveTab() {
         var navHorizontal = $('.nav-profile-horizontal');
-
         navHorizontal.find('li').on('click', function (event) {
-            event.preventDefault();
-
             navHorizontal.find('li.active').removeClass('active');
-
             $(this).addClass('active');
 
             var requestedResource = $(this).attr('name');

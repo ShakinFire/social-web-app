@@ -20,7 +20,8 @@ const init = (app, data) => {
             res.render('profile-logged', req.user);
         })
         .get('/home', (req, res) => {
-            res.render('_profile/home');
+            console.log(req.user);
+            res.render('_profile/home', req.user);
         })
         .get('/posts', (req, res) => {
             res.render('_profile/posts');

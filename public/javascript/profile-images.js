@@ -12,13 +12,22 @@ $(function () {
             contentType: false, 
             processData: false,
             cache: false,
+            beforeSend:
+                function() {
+                    $imgToBeChanged.hide();
+                    $imgToBeChanged.parent().removeClass('profile-image-hover');
+                    $imgToBeChanged.parent().removeClass('cover-image-hover');
+                },
             success:
                 // TO-DO: Put some loading gif and hide it at the success.
                 function(response) {
+                    $imgToBeChanged.parent().addClass('profile-image-hover');
+                    $imgToBeChanged.parent().addClass('cover-image-hover');
+ 
                     $imgToBeChanged.attr('src', response);
+                    $imgToBeChanged.show();
 
                     var shouldUpdateNavImg = (targetImg === 'profile') ? true : false;
-                    console.log(shouldUpdateNavImg);
                     if (shouldUpdateNavImg) {
                         $profileImgAsBtn.css('background-image', "url('" + response + "')");
                     }
@@ -40,9 +49,8 @@ $(function () {
         var targetImage = $imageToBeChanged.hasClass('cover-img') ? 'cover' : 'profile';
         $whichImage.val(targetImage);
 
-        $button.click();
-
-        $button.change(function() {
+        $button.trigger('click');
+        $button.one('change', function() {
             sendImage($imageToBeChanged, $form, targetImage);
         });
     };

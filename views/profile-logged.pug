@@ -11,9 +11,9 @@ block nav-inner-right
 block content
         div.container.profile-logged-main
             div.container-top
-                div.cover-image
+                div.cover-image.cover-image-hover
                     img#cover-img.cover-img(src= cover_pic)
-                div.profile-image
+                div.profile-image.profile-image-hover
                     img#profile-img.profile-img(src= profile_pic)
                 div.nav-profile-horizontal
                     ul.nav.nav-tabs.nav-justified
@@ -24,5 +24,4 @@ block content
                         li(role='presentation', name='settings')
                             a(href='#') Profile Settings & Privacy
             div.chosen-tab-context
-                div.activeTabContent
-                    h1 Home default.
+                include ./_profile/home
