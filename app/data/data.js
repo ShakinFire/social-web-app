@@ -1,5 +1,6 @@
 const Data = require('./generic-data');
 const UserData = require('./user-data');
+const PostData = require('./post-data');
 
 const {
     User,
@@ -18,5 +19,5 @@ module.exports = {
     comment: new Data(Comment),
     gender: new Data(Gender),
     like: new Data(Like),
-    post: new Data(Post),
+    post: new PostData(Post),
 };

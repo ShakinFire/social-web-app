@@ -17,7 +17,8 @@ $(function () {
                 function(response) {
                     $imgToBeChanged.attr('src', response);
 
-                    var shouldUpdateNavImg = targetImg === 'profile' ? true : false;
+                    var shouldUpdateNavImg = (targetImg === 'profile') ? true : false;
+                    console.log(shouldUpdateNavImg);
                     if (shouldUpdateNavImg) {
                         $profileImgAsBtn.css('background-image', "url('" + response + "')");
                     }

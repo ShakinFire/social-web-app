@@ -3,10 +3,6 @@ class PostController {
         this.data = data;
     }
 
-    getAll() {
-        return this.data.post.getAll();
-    }
-
     isLoggedIn(user) {
         if (user) {
             return true;
@@ -58,6 +54,33 @@ class PostController {
         }
 
         return result;
+    }
+
+    async _getUsers(postsData) {
+        const users = (await Promise.all(postsData.map((value) => {
+            return this.data.user.getById(value.UserId);
+        })));
+
+        return users;
+    }
+
+    async updateContent(isScrolled) {
+        if (isScrolled) {
+            // for scrolled updated content
+        } else {
+            // on page load update news feed
+            const allPosts = await this.data.post.sortPostsByDate();
+            allPosts.forEach(async (post) => {
+                post.date = await this._getDate(post);
+            });
+            const allUsers = await this._getUsers(allPosts);
+
+            return {
+                allPosts,
+                allUsers,
+            };
+        }
+        return false;
     }
 
     async _getDate(postInfo) {

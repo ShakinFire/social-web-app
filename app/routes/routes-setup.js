@@ -1,14 +1,19 @@
 /* globals __dirname __filename */
 const fs = require('fs');
 const path = require('path');
+const Pcontroller = require('../controllers/post-controller');
 
 const init = (app, data) => {
-    app.get('/', (req, res) => {
-        if (req.isAuthenticated()) {
-            res.render('home-logged', {
-                first_name: req.user.first_name,
-                profile_pic: req.user.profice_pic,
-            });
+    const PostController = new Pcontroller(data);
+    app.get('/', async (req, res) => {
+        if (req.user) {
+            const context = await PostController
+                .updateContent(req.query.content);
+
+            context.profile_pic = req.user.profile_pic;
+            context.first_name = req.user.first_name;
+
+            res.render('home-logged', context);
         } else {
             res.render('fullscreen-video');
         }
