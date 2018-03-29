@@ -33,6 +33,31 @@ class UserData extends Data {
             },
         });
     }
+
+    async dislike(postId, userId) {
+        const rowToDelete = await this.Model.findOne({
+            include: [
+                {
+                    model: Post,
+                    where: {
+                        id: postId,
+                    },
+                },
+            ],
+        },
+        {
+            where: {
+                id: userId,
+            },
+        });
+
+        rowToDelete.Posts[0].dataValues.user_like_post.destroy({
+            where: {
+                UserId: userId,
+                PostId: postId,
+            },
+        });
+    }
 }
 
 module.exports = UserData;

@@ -18,8 +18,8 @@ var Sequelize = require('sequelize');
 
 var info = {
     "revision": 1,
-    "name": "fresh-start",
-    "created": "2018-03-28T16:41:38.942Z",
+    "name": "new-start",
+    "created": "2018-03-29T09:00:56.703Z",
     "comment": ""
 };
 
@@ -138,16 +138,20 @@ var migrationCommands = [{
                     "allowNull": false
                 },
                 "first_name": {
-                    "type": Sequelize.STRING(30)
+                    "type": Sequelize.STRING(30),
+                    "defaultValue": "First name"
                 },
                 "last_name": {
-                    "type": Sequelize.STRING(30)
+                    "type": Sequelize.STRING(30),
+                    "defaultValue": "Last name"
                 },
                 "profile_pic": {
-                    "type": Sequelize.STRING
+                    "type": Sequelize.STRING,
+                    "defaultValue": "img/profile/default-profile.jpeg"
                 },
                 "cover_pic": {
-                    "type": Sequelize.STRING
+                    "type": Sequelize.STRING,
+                    "defaultValue": "img/profile/default-cover.jpg"
                 },
                 "description": {
                     "type": Sequelize.TEXT
@@ -203,10 +207,10 @@ var migrationCommands = [{
                     "allowNull": false
                 },
                 "total_likes": {
-                    "type": Sequelize.DECIMAL
+                    "type": Sequelize.INTEGER
                 },
                 "total_comments": {
-                    "type": Sequelize.DECIMAL
+                    "type": Sequelize.INTEGER
                 },
                 "createdAt": {
                     "type": Sequelize.DATE,

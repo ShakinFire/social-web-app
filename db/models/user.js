@@ -51,6 +51,7 @@ module.exports = (sequelize, DataTypes) => {
       Follower,
       Comment,
       Post,
+      user_like_post,
     } = models;
 
     User.belongsTo(Address, {

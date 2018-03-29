@@ -135,10 +135,10 @@
                     "seqType": "Sequelize.TEXT"
                 },
                 "total_likes": {
-                    "seqType": "Sequelize.DECIMAL"
+                    "seqType": "Sequelize.INTEGER"
                 },
                 "total_comments": {
-                    "seqType": "Sequelize.DECIMAL"
+                    "seqType": "Sequelize.INTEGER"
                 },
                 "createdAt": {
                     "allowNull": false,
@@ -317,5 +317,5 @@
             "indexes": []
         }
     },
-    "revision": 6
+    "revision": 1
 }

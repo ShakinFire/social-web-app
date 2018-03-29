@@ -1,4 +1,5 @@
 const Data = require('./generic-data');
+const sequelize = require('sequelize');
 
 class PostData extends Data {
     constructor(postModel) {
@@ -25,13 +26,20 @@ class PostData extends Data {
     }
 
     totalLikesIncrement(postId) {
-        return this.Model.update({
-            total_likes: Sequelize.literal('total_likes' + 1),
+        this.Model.update({
+            total_likes: sequelize.literal('total_likes + 1'),
         },
         {
-            where: {
-                id: postId,
-            },
+            where: { id: postId },
+        });
+    }
+
+    totalLikesDecrement(postId) {
+        this.Model.update({
+            total_likes: sequelize.literal('total_likes - 1'),
+        },
+        {
+            where: { id: postId },
         });
     }
 }

@@ -1,8 +1,8 @@
 //- Didnt have time to make it extendable and not repeatable
 //- TODO: if we have time - extend the pug file so there is no repeatable code
 if condition
-    span.hiddenId #{allPosts.id}
-    div.all-posts.container-style
+    div.all-posts.container-style#span-wrapper
+        span.hiddenId #{allPosts.id}
         div.post-header
             a(href="profile/" + allUsers.username)
                 img(src="img/default_profile.jpg")
@@ -15,7 +15,7 @@ if condition
                 | #{allPosts.post_content}
         div.icons-content
             div.row
-                button(name="type", value="like")#like-btn.col-lg-6
+                button(name="type", value="like").like-btn.col-lg-6
                     div.text-center.btn-wrapper
                         p
                             i(class="fa fa-thumbs-o-up" aria-hidden="true")
@@ -27,8 +27,8 @@ if condition
                             | Comment(#{allPosts.total_comments})
 else
     each post, index in allPosts
-        span.hiddenId #{post.id}
-        div.all-posts.container-style
+        div.all-posts.container-style#span-wrapper
+            span.hiddenId #{post.id}
             div.post-header
                 a(href="profile/" + allUsers[index].username)
                     img(src="img/default_profile.jpg")
@@ -41,7 +41,7 @@ else
                     | #{post.post_content}
             div.icons-content
                 div.row
-                    button(name="type", value="like")#like-btn.col-lg-6
+                    button(name="type", value="like").like-btn.col-lg-6
                         div.text-center.btn-wrapper
                             p
                                 i(class="fa fa-thumbs-o-up" aria-hidden="true")

@@ -22,8 +22,8 @@ block content
                         | Post
                 div#all-posts-wrapper
                     each post, index in allPosts
-                        span.hiddenId #{post.id}
-                        div.all-posts.container-style
+                        div.all-posts.container-style#span-wrapper
+                            span.hiddenId #{post.id}
                             div.post-header
                                 a(href="profile/" + allUsers[index].username)
                                     img(src="img/default_profile.jpg")
@@ -36,7 +36,7 @@ block content
                                     | #{post.post_content}
                             div.icons-content
                                 div.row
-                                    button(name="type", value="like")#like-btn.col-lg-6
+                                    button(name="type", value="like").like-btn.col-lg-6
                                         div.text-center.btn-wrapper
                                             p
                                                 i(class="fa fa-thumbs-o-up" aria-hidden="true")

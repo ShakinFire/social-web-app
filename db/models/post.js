@@ -8,10 +8,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       },
     total_likes: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.INTEGER,
       },
     total_comments: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.INTEGER,
     }
   }, {});
   Post.associate = function(models) {
