@@ -7,10 +7,8 @@ const init = (app, data) => {
 
     app.get('/like', async (req, res) => {
         if (req.user && req.xhr) {
-            console.log(req.query.id);
             const upOrDown = await LikeController.likeDislike(req.query.id, req.user.id);
-            console.log(upOrDown);
-            res.send('50');
+            res.send(upOrDown);
         } else {
             res.redirect('/');
         }

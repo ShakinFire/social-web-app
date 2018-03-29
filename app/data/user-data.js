@@ -1,4 +1,7 @@
 const Data = require('./generic-data');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+
 const {
     Post,
  } = require('../../db/models');
@@ -17,7 +20,11 @@ class UserData extends Data {
     }
 
     checkIfLiked(postId, userId) {
+        console.log(userId);
         return this.Model.findOne({
+            where: {
+                id: userId,
+            },
             include: [
                 {
                     model: Post,
@@ -26,16 +33,14 @@ class UserData extends Data {
                     },
                 },
             ],
-        },
-        {
-            where: {
-                id: userId,
-            },
         });
     }
 
     async dislike(postId, userId) {
         const rowToDelete = await this.Model.findOne({
+            where: {
+                id: userId,
+            },
             include: [
                 {
                     model: Post,
@@ -44,11 +49,6 @@ class UserData extends Data {
                     },
                 },
             ],
-        },
-        {
-            where: {
-                id: userId,
-            },
         });
 
         rowToDelete.Posts[0].dataValues.user_like_post.destroy({
