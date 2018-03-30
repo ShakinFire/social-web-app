@@ -27,7 +27,7 @@ const init = (app, data) => {
             res.render('_profile/posts');
         })
         .get('/settings', (req, res) => {
-            res.render('_profile/settings');
+            res.render('_profile/settings', req.user);
         })
         .get('/image', (req, res) => {
             res.send(req.user.profile_pic);
@@ -38,11 +38,19 @@ const init = (app, data) => {
             // for non-logged users.
             res.send(req.params);
         })
+        .post('/update', async (req, res) => {
+            const response =
+                await controller.updateProfileInfo(req.user.id, req.body);
+            if (response instanceof Error) {
+                res.status(400);
+                res.send(response.message);
+            } else {
+                res.send(JSON.stringify(response));
+            }
+        })
         .post('/upload', async (req, res) => {
             try {
-                await controller.updateImg(
-                    req.user.id, req.file.filename, req.body['which-image']
-                );
+                await controller.updateImg(req);
                 res.send('uploads/' + req.file.filename);
             } catch (err) {
                 console.log(err);

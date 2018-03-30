@@ -11,7 +11,15 @@ class UserData extends Data {
     getUserByUsername(username) {
         return this.Model.findOne({
             where: {
-                username,
+                'username': username,
+            },
+        });
+    }
+
+    getUserByEmail(email) {
+        return this.Model.findOne({
+            where: {
+                'email': email,
             },
         });
     }

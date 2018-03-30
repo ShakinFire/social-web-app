@@ -29,3 +29,10 @@
     background-image: url('/img/add_image.png');
     background-size: 100px 100px;
 }
+
+.profile-logged-main .form-update-wrapper {
+    background-image: url('/img/loading.gif');
+    background-repeat: no-repeat;
+    background-size: 45px 45;
+    background-position: 50% 50%;
+}

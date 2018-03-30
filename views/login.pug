@@ -1,13 +1,14 @@
 extends ./_shared/master
 
 block content
+    script(src="javascript/login.js")
     div.background-img-log.bg-img
         div.container
             div.login
                 div.login-wrapper.col-lg-5
                     h1
                         | LOGIN
-                    form.log-form(action='/login', method='post')
+                    form.log-form.login-form(action='/login', method='post')
                         div.form-group
                             label Username:
                             input(type='text', name='username', placeholder='Enter username' id="active-window")

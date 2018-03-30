@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
     },
     password: {
-      type: DataTypes.STRING(35),
+      type: DataTypes.STRING(200),
       allowNull: false,
     },
     first_name: {
@@ -37,26 +37,26 @@ module.exports = (sequelize, DataTypes) => {
     },
     description: {
       type: DataTypes.TEXT,
+      defaultValue: 'Write down your description here...',
+    },
+    address: {
+      type: DataTypes.STRING(150),
+      defaultValue: 'Sofia, Bulgaria',
     },
     /* eslint-enable */
-    age: {
-      type: DataTypes.DECIMAL,
+    birthday: {
+      type: DataTypes.DATEONLY,
     },
   },
    {});
   User.associate = function(models) {
     const {
       Gender,
-      Address,
       Follower,
       Comment,
       Post,
       user_like_post,
     } = models;
-
-    User.belongsTo(Address, {
-      onDelete: 'CASCADE',
-    });
 
     User.belongsTo(Gender, {
       onDelete: 'CASCADE',

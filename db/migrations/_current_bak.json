@@ -157,7 +157,7 @@
                 },
                 "password": {
                     "allowNull": false,
-                    "seqType": "Sequelize.STRING(200)"
+                    "seqType": "Sequelize.STRING(35)"
                 },
                 "first_name": {
                     "defaultValue": {
@@ -288,5 +288,5 @@
             "indexes": []
         }
     },
-    "revision": 3
+    "revision": 2
 }

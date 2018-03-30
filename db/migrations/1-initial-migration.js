@@ -18,8 +18,8 @@ var Sequelize = require('sequelize');
 
 var info = {
     "revision": 1,
-    "name": "new-start",
-    "created": "2018-03-29T09:00:56.703Z",
+    "name": "initial-migration",
+    "created": "2018-03-29T11:12:51.453Z",
     "comment": ""
 };
 

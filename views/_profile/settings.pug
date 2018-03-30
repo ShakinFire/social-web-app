@@ -1,4 +1,4 @@
-script(src="javascript/profile-images.js")
+script(src="javascript/profile-settings.js")
 link(rel='stylesheet', type='text/css', href='stylesheets/profile-settings.css')
 
 // - Form for submitting new profile or cover image.
@@ -7,16 +7,38 @@ form#upload-form.upload-form(action="/profile/upload", method="POST", enctype="m
     input#which-image.which-image(type="text", name="which-image")
 
 // - The rest of the settings page.
-div.col-sm-offset-1.col-sm-10
+div.col-md-offset-3.col-md-6
     form.form-horizontal.form-update-info(action="/profile/update", method="POST")
+        div.jumbotron
+            p Update the information in your profile...
+        div.form-group.form-group-row
+            div.col-md-6
+                input.form-control(type="text", name="first_name" placeholder="First name", value= first_name)
+            div.col-md-6
+                input.form-control(type="text", name="last_name" placeholder="Last name", value= last_name)
+        div.form-group.form-group-row
+            div.col-md-12
+                textarea.form-control(rows="5", name="description", placeholder="Write down your description here...")
+                    | #{description}
+        div.form-group.form-group-row
+            div.col-md-4
+                input.form-control(type="date", name="birthday", placeholder="Pick up your birthday date.", value= birthday)
+            div.col-md-8
+                input.form-control(type="text", name="address", placeholder="Enter your address, e.g Sofia, Bulgaria, blvd Al. Malinov...", value= address)
+        hr
+        div.form-group.form-group-row
+            div.col-md-12
+                span.help-block Change email
+                input.form-control(type="text", name="email", placeholder= email)
+        hr
         div.form-group
-            label(for='first-name') First Name
-            input#first-name.form-control(type='text', placeholder='First Name')
+            div.col-md-12
+                span.help-block Change password?
+                input.form-control(type="password", name="password")
+                span.help-block Repeat the password.
+                input.form-control(type="password", name="password")
+        hr
         div.form-group
-            label(for='last-name') Last Name
-            input#last-name.form-control(type='text', placeholder='Last Name')
-        div.form-group
-            label(for='description') Description
-            textarea#description.form-control(rows='3')
-        div.form-group
-            input(type='submit', value="send")
+            div.col-md-offset-2.col-md-8
+                button.btn.btn-info.btn-block.btn-update-info(type="submit")
+                    | Save changes

@@ -1,5 +1,6 @@
 const session = require('express-session');
 const passport = require('passport');
+const bcrypt = require('bcrypt');
 
 const LocalStrategy = require('passport-local').Strategy;
 
@@ -14,10 +15,12 @@ const init = (app, data) => {
             }
 
             const userData = queryResult.dataValues;
+            const equalPasswords = await bcrypt.compare(password, userData.password);
 
-            if (!(userData.password === password)) {
+            if (!equalPasswords) {
                 return done(null, false);
             }
+
             return done(null, userData);
         } catch (err) {
             return done(err);

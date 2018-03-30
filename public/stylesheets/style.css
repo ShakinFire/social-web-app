@@ -389,6 +389,7 @@ header nav a:hover {
 .profile-logged-main {
   position: relative;
   margin-top: 15px;
+  margin-bottom: 15px;
   height: auto;
   background: white;
   border-radius: 3px;

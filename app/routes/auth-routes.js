@@ -7,18 +7,32 @@ const init = (app, data) => {
 
     app.get('/login', (req, res) => {
         if (authController.isLoggedIn(req.user)) {
-            res.render('home-logged');
+            res.redirect('/');
         } else {
             res.render('login');
         }
     });
 
-    app.post('/login', passport.authenticate('local', {
-            successRedirect: '/',
-            failureRedirect: '/login',
-            failureFlash: false,
-        })
-    );
+    app.post('/login', (req, res) => {
+        (passport.authenticate('local',
+            (err, user, info) => {
+                if (err) {
+                    res.status(500);
+                    res.send('Internal server error');
+                    return;
+                }
+                if (!user) {
+                    res.status(400);
+                    res.send('Please provide correct credentials');
+                    return;
+                }
+                req.logIn(user, () => {
+                    res.redirect('/');
+                    return;
+                });
+           })
+        )(req, res);
+    });
 
     app.get('/register', (req, res) => {
         if (authController.isLoggedIn(req.user)) {
@@ -29,17 +43,12 @@ const init = (app, data) => {
     });
 
     app.post('/register', async (req, res) => {
-        const userData = req.body;
-        try {
-            await authController.register(userData);
+        const response = await authController.register(req.body);
+        if (response instanceof Error) {
+            res.status(400);
+            res.send(response.message);
+        } else {
             res.redirect('/');
-        } catch (err) {
-            console.log(err);
-            const reason =
-            err.parent.sqlMessage.includes('username') ? 'username' : 'email';
-            res.send(
-                `ERROR: There is already a user registered with that ${reason}
-            `);
         }
     });
 

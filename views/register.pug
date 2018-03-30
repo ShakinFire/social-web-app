@@ -1,13 +1,14 @@
 extends ./_shared/master
 
 block content
+    script(src="javascript/register.js")
     div.background-img-reg.bg-img
         div.container
             div.login
                 div.login-wrapper.col-lg-5
                     h1
                         | SIGN UP
-                    form.log-form(action='/register', method='post')
+                    form.log-form.registration-form(action='/register', method='post')
                         div.form-group
                             label Username:
                             input(type='text', name='username', placeholder='Enter username' id="active-window")

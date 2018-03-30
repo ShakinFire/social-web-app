@@ -1,9 +1,11 @@
-const validator = require('./validators/valid-register');
+const bcrypt = require('bcrypt');
+
+const UserUpdateValidator = require('./validators/user-update-validator');
 
 class AuthController {
     constructor(data) {
         this.data = data;
-        this._validate = validator;
+        this.check = new UserUpdateValidator();
     }
 
     isLoggedIn(user) {
@@ -13,12 +15,22 @@ class AuthController {
         return false;
     }
 
-    register(user) {
-       if (this._validate(user)) {
+    async register(user) {
+        try {
             user.password = user.password[0];
-            return this.data.user.createCol(user);
-       }
-       return false;
+
+            this.check.isUsernameCorrect(user);
+            this.check.isPasswordCorrect(user);
+            this.check.isEmail(user);
+
+            // password hash.
+            user.password = await bcrypt.hash(user.password, 10);
+            await this.data.user.createCol(user);
+            return true;
+        } catch (err) {
+            console.log(err);
+            return err;
+        }
     }
 }
 
