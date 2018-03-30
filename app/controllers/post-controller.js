@@ -76,8 +76,6 @@ class PostController {
 
         allPosts.forEach(async (post) => {
             post.date = await this._getDate(post);
-            post.total_comments = 0;
-            post.total_likes = 0;
         });
         const allUsers = await this._getUsers(allPosts);
 

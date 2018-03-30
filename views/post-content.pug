@@ -19,12 +19,12 @@ if condition
                     div.text-center.btn-wrapper
                         p
                             i(class="fa fa-thumbs-o-up" aria-hidden="true")
-                            | Like(#{allPosts.total_likes})
+                            span(id="like-number")| Like(#{allPosts.total_likes})
                 button(name="type", value="comment")#comment-btn.col-lg-6
                     div.text-center.btn-wrapper
                         p
                             i(class="fa fa-comment-o")
-                            | Comment(#{allPosts.total_comments})
+                            span(id="comment-number")| Comment(#{allPosts.total_comments})
 else
     each post, index in allPosts
         div.all-posts.container-style#span-wrapper
@@ -45,9 +45,9 @@ else
                         div.text-center.btn-wrapper
                             p
                                 i(class="fa fa-thumbs-o-up" aria-hidden="true")
-                                | Like(#{post.total_likes})
+                                span(id="like-number")| Like(#{post.total_likes})
                     button(name="type", value="comment")#comment-btn.col-lg-6
                         div.text-center.btn-wrapper
                             p
                                 i(class="fa fa-comment-o")
-                                | Comment(#{post.total_comments})
+                                span(id="comment-number")| Comment(#{post.total_comments})

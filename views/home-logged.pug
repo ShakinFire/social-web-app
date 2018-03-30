@@ -40,12 +40,13 @@ block content
                                         div.text-center.btn-wrapper
                                             p
                                                 i(class="fa fa-thumbs-o-up" aria-hidden="true")
-                                                | Like(#{post.total_likes})
+                                                span(id="like-number")| Like(#{post.total_likes})
                                     button(name="type", value="comment")#comment-btn.col-lg-6
                                         div.text-center.btn-wrapper
                                             p
                                                 i(class="fa fa-comment-o")
-                                                | Comment(#{post.total_comments})
+                                                span(id="comment-number")| Comment(#{post.total_comments})
+                        
             div.col-lg-4
                 //- PROBABLY BETTER TO BE 11
                 div.latest-activities.col-lg-12.pull-right
