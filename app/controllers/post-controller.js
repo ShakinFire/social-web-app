@@ -9,7 +9,7 @@ class PostController {
         }
         return false;
     }
-    
+
     _getMonth(month) {
         let result = null;
         switch (month) {
@@ -65,6 +65,7 @@ class PostController {
     }
 
     async loadContent(offsetQuery) {
+        const commentOnSingleLoad = 6;
         let allPosts = null;
         if (offsetQuery) {
             // on bottom scroll load additional news feed
@@ -74,19 +75,40 @@ class PostController {
             allPosts = await this.data.post.sortPostsByDate();
         }
 
-        allPosts.forEach(async (post) => {
-            post.date = await this._getDate(post);
-        });
+        const allComments = await Promise.all(allPosts.map(async (post, index) => {
+            post.date = this._getDate(post);
+            return this.data.comment.getAllPostComments(post.id);
+        }));
+
+        await Promise.all([allComments.forEach(async (comments) => {
+            if (comments.length === commentOnSingleLoad) {
+                // if comments on post becomes full
+                comments.pop();
+                // must put button for load more comments
+                comments.condition = true;
+            } else {
+                // shouldnt put button for load more comments
+                comments.condition = false;
+            }
+            return Promise.all(comments.map(async (obj) => {
+                const userValues = await this.data.user.getById(+obj.UserId);
+                obj.username = userValues.username;
+                obj.profile_pic = userValues.profile_pic;
+                return obj;
+            }));
+        })]);
+
         const allUsers = await this._getUsers(allPosts);
 
         return {
             allPosts,
             allUsers,
+            allComments,
         };
     }
 
-    async _getDate(postInfo) {
-        const currentDate = await JSON.stringify(postInfo.createdAt).split('T');
+    _getDate(postInfo) {
+        const currentDate = JSON.stringify(postInfo.createdAt).split('T');
         const dmy = currentDate[0].split('-'); // day-month-year
         const year = dmy[0].substring(3, 5);
         const hms = currentDate[1].split(':'); // hour-minute-secound

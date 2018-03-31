@@ -1,53 +1,68 @@
 //- Didnt have time to make it extendable and not repeatable
 //- TODO: if we have time - extend the pug file so there is no repeatable code
+include ./comments/comment-section
+
 if condition
-    div.all-posts.container-style#span-wrapper
-        span.hiddenId #{allPosts.id}
-        div.post-header
-            a(href="profile/" + allUsers.username)
-                img(src="img/default_profile.jpg")
-            p
-                a(href="profile/" + allUsers.username)| #{allUsers.username}
-                br
-                | posted #{allPosts.date}
-        div.post-content
-            p.break-fix
-                | #{allPosts.post_content}
-        div.icons-content
-            div.row
-                button(name="type", value="like").like-btn.col-lg-6
-                    div.text-center.btn-wrapper
-                        p
-                            i(class="fa fa-thumbs-o-up" aria-hidden="true")
-                            span(id="like-number")| Like(#{allPosts.total_likes})
-                button(name="type", value="comment")#comment-btn.col-lg-6
-                    div.text-center.btn-wrapper
-                        p
-                            i(class="fa fa-comment-o")
-                            span(id="comment-number")| Comment(#{allPosts.total_comments})
-else
-    each post, index in allPosts
+    div#post-comment-wrapper
         div.all-posts.container-style#span-wrapper
-            span.hiddenId #{post.id}
+            span.hiddenId #{allPosts.id}
             div.post-header
-                a(href="profile/" + allUsers[index].username)
-                    img(src="img/default_profile.jpg")
+                a(href="profile/" + allUsers.username)
+                    img(src=allUsers.profile_pic)
                 p
-                    a(href="profile/" + allUsers[index].username)| #{allUsers[index].username}
+                    a(href="profile/" + allUsers.username)| #{allUsers.username}
                     br
-                    | posted #{post.date}
+                    | posted #{allPosts.date}
             div.post-content
                 p.break-fix
-                    | #{post.post_content}
+                    | #{allPosts.post_content}
             div.icons-content
                 div.row
                     button(name="type", value="like").like-btn.col-lg-6
                         div.text-center.btn-wrapper
                             p
                                 i(class="fa fa-thumbs-o-up" aria-hidden="true")
-                                span(id="like-number")| Like(#{post.total_likes})
+                                span(id="like-number")| Like(#{allPosts.total_likes})
                     button(name="type", value="comment")#comment-btn.col-lg-6
                         div.text-center.btn-wrapper
                             p
                                 i(class="fa fa-comment-o")
-                                span(id="comment-number")| Comment(#{post.total_comments})
+                                span(id="comment-number")| Comment(#{allPosts.total_comments})
+        div.comment-content
+            div
+                textarea(name="post_content" placeholder="Comment something" rows="1").comment-textarea.post-comment-message#focus-me
+else
+    each post, index in allPosts
+        div#post-comment-wrapper
+            div.all-posts.container-style#span-wrapper
+                span.hiddenId #{post.id}
+                div.post-header
+                    a(href="profile/" + allUsers[index].username)
+                        img(src=allUsers[index].profile_pic)
+                    p
+                        a(href="profile/" + allUsers[index].username)| #{allUsers[index].username}
+                        br
+                        | posted #{post.date}
+                div.post-content
+                    p.break-fix
+                        | #{post.post_content}
+                div.icons-content
+                    div.row
+                        button(name="type", value="like").like-btn.col-lg-6
+                            div.text-center.btn-wrapper
+                                p
+                                    i(class="fa fa-thumbs-o-up" aria-hidden="true")
+                                    span(id="like-number")| Like(#{post.total_likes})
+                        button(name="type", value="comment")#comment-btn.col-lg-6
+                            div.text-center.btn-wrapper
+                                p
+                                    i(class="fa fa-comment-o")
+                                    span(id="comment-number")| Comment(#{post.total_comments})
+            div.comment-content
+                if allComments[index]
+                    each comment in allComments[index]
+                        +comment(comment.comment_content, comment.username, comment.profile_pic)
+                div.submit-comment-wrapper
+                    if allComments[index].condition
+                        a(href="#").load-more#load-more-comments| Load more comments &darr;
+                    textarea(name="post_content" placeholder="Comment something" rows="1").comment-textarea.post-comment-message#focus-me

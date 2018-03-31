@@ -1,11 +1,13 @@
 extends ./_shared/master
 include ./_shared/nav-logged
-
+include ./comments/comment-section
 append scripts
     script(src="javascript/profile-nav.js")
     script(src="javascript/scroll-content.js")
     script(src="javascript/create-post.js")
     script(src="javascript/like-post.js")
+    script(src="javascript/comment-post.js")
+    script(src="javascript/load-more-comments.js")
 
 block nav-inner-right
     +nav-logged()
@@ -14,39 +16,47 @@ block content
     div.container
         div.row.home-log
             div.col-lg-5.col-lg-offset-3
-                div.container-style
+                div.container-style.post-box
                     label
                         | Write a post
-                    textarea(name="post_content" placeholder="Whats on your mind" rows="1")#post-message
+                    textarea(name="post_content" placeholder="Whats on your mind" rows="1")#post-message.post-comment-message
                     button.post-btn
                         | Post
                 div#all-posts-wrapper
                     each post, index in allPosts
-                        div.all-posts.container-style#span-wrapper
-                            span.hiddenId #{post.id}
-                            div.post-header
-                                a(href="profile/" + allUsers[index].username)
-                                    img(src="img/default_profile.jpg")
-                                p
-                                    a(href="profile/" + allUsers[index].username)| #{allUsers[index].username}
-                                    br
-                                    | posted #{post.date}
-                            div.post-content
-                                p.break-fix
-                                    | #{post.post_content}
-                            div.icons-content
-                                div.row
-                                    button(name="type", value="like").like-btn.col-lg-6
-                                        div.text-center.btn-wrapper
-                                            p
-                                                i(class="fa fa-thumbs-o-up" aria-hidden="true")
-                                                span(id="like-number")| Like(#{post.total_likes})
-                                    button(name="type", value="comment")#comment-btn.col-lg-6
-                                        div.text-center.btn-wrapper
-                                            p
-                                                i(class="fa fa-comment-o")
-                                                span(id="comment-number")| Comment(#{post.total_comments})
-                        
+                        div#post-comment-wrapper
+                            div.all-posts.container-style#span-wrapper
+                                span.hiddenId #{post.id}
+                                div.post-header
+                                    a(href="profile/" + allUsers[index].username)
+                                        img(src=allUsers[index].profile_pic)
+                                    p
+                                        a(href="profile/" + allUsers[index].username)| #{allUsers[index].username}
+                                        br
+                                        | posted #{post.date}
+                                div.post-content
+                                    p.break-fix
+                                        | #{post.post_content}
+                                div.icons-content
+                                    div.row
+                                        button(name="type", value="like").like-btn.col-lg-6
+                                            div.text-center.btn-wrapper
+                                                p
+                                                    i(class="fa fa-thumbs-o-up" aria-hidden="true")
+                                                    span(id="like-number")| Like(#{post.total_likes})
+                                        button(name="type", value="comment")#comment-btn.col-lg-6
+                                            div.text-center.btn-wrapper
+                                                p
+                                                    i(class="fa fa-comment-o")
+                                                    span(id="comment-number")| Comment(#{post.total_comments})
+                            div.comment-content
+                                if allComments[index]
+                                    each comment in allComments[index]
+                                        +comment(comment.comment_content, comment.username, comment.profile_pic)
+                                div.submit-comment-wrapper
+                                    if allComments[index].condition
+                                        a(href="#").load-more#load-more-comments| Load more comments &darr;
+                                    textarea(name="post_content" placeholder="Comment something" rows="1").comment-textarea.post-comment-message#focus-me
             div.col-lg-4
                 //- PROBABLY BETTER TO BE 11
                 div.latest-activities.col-lg-12.pull-right

@@ -5,7 +5,6 @@ class LikeController {
 
     async _validate(postId, userId) {
         const found = await this.data.user.checkIfLiked(postId, userId);
-        console.log(found);
         if (found) {
             return true;
         }
@@ -14,14 +13,17 @@ class LikeController {
     }
 
     async likeDislike(postId, userId) {
+        // validate
         const notValid = await this._validate(+postId, +userId);
-        console.log(notValid);
+
         if (notValid) {
+            // dislike
             await this.data.user.dislike(+postId, +userId);
             await this.data.post.totalLikesDecrement(+postId);
             return false;
         }
 
+        // like
         await this.data.post.totalLikesIncrement(+postId);
         const post = await this.data.post.getById(+postId);
         const user = await this.data.user.getById(+userId);

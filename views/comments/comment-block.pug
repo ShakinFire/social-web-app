@@ -1,0 +1,21 @@
+if user
+    div.row.comment-wrap
+        div.col-lg-1
+            a(href="profile/" + user.username)
+                img(src=user.profile_pic).comment-profile-img
+        div.col-lg-10
+            p.user-comment
+                a(href="/profile/" + username).username-place| #{user.username}
+                | #{comment.comment_content}
+else
+    each comment in comments
+        div.row.comment-wrap
+            div.col-lg-1
+                a(href="profile/" + comment.username)
+                    img(src=comment.profile_pic).comment-profile-img
+            div.col-lg-10
+                p.user-comment
+                    a(href="/profile/" + comment.username).username-place| #{comment.username}
+                    | #{comment.comment_content}
+    if condition || comments.condition
+            |y

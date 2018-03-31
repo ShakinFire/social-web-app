@@ -25,6 +25,15 @@ class PostData extends Data {
         });
     }
 
+    totalCommentsIncrement(postId) {
+        this.Model.update({
+            total_comments: sequelize.literal('total_comments + 1'),
+        },
+        {
+            where: { id: postId },
+        });
+    }
+
     totalLikesIncrement(postId) {
         this.Model.update({
             total_likes: sequelize.literal('total_likes + 1'),

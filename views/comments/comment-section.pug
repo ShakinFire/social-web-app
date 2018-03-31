@@ -1,0 +1,9 @@
+mixin comment(comment, username, profile_pic)
+    div.row.comment-wrap
+        div.col-lg-1
+            a(href="/profile/" + username)
+                img(src=profile_pic).comment-profile-img
+        div.col-lg-10
+            p.user-comment
+                a(href="/profile/" + username).username-place| #{username}
+                | #{comment}
