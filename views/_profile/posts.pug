@@ -1,12 +1,6 @@
 link(rel="stylesheet", type="text/css" href="stylesheets/profile-posts.css")
 script(src="javascript/profile-posts.js")
 
-.container
-    #comments-modal.modal.fade(role='dialog')
-        .modal-dialog.modal-md
-            .modal-content
-                .modal-body
-
 .posts-container
     each post in posts
         .container.single-post-container
@@ -19,7 +13,7 @@ script(src="javascript/profile-posts.js")
                         | ) | &nbsp;
                     i.glyphicon.glyphicon-comment
                     p.total-comments Total comments(
-                        a(href="", post-id= post.id)#show-comments #{post.total_comments}
+                        a(href="", post-id= post.id).show-comments #{post.total_comments}
                         | ) &nbsp;
                 .col-md-2.post-date
                     p= post.createdAt

@@ -39,8 +39,16 @@ const init = (app, data) => {
         usersController.deleteUserById(id);
         res.sendStatus(200);
     })
-    .get('/posts', (req, res) => {
-        res.render('_admin/posts');
+    .get('/posts', async (req, res) => {
+        const posts = await Promise.all(await postsController.getAllPosts());
+        res.render('_admin/posts', { posts: posts });
+    })
+    .post('/posts/delete/:id', (req, res) => {
+        const {
+            id,
+        } = req.params;
+        postsController.deletePostById(id);
+        res.sendStatus(200);
     })
     .get('/something-else', (req, res) => {
         res.render('_admin/something-else');

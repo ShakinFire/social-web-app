@@ -19,7 +19,6 @@ html(lang="en")
         script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
         script(src="javascript/warning-popup.js")
         link(rel="stylesheet", href="stylesheets/style.css")
-
         title Laniakea
     body
         +nav()
@@ -29,6 +28,11 @@ html(lang="en")
                 .alert.alert-info
                     strong Warning!
                     span.message Something happened...
+        .container
+            #comments-modal.modal.fade(role='dialog')
+                .modal-dialog.modal-md
+                    .modal-content
+                        .modal-body
         block content
         +footer()
         script(src="javascript/script.js")

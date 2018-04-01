@@ -10,7 +10,8 @@ script(src="javascript/admin.js")
                     th Email
                     th Full name
                     th Birthday
-                    th Date of registration
+                    th Number of posts
+                    th Registered at
                     th Delete
             tbody
                 each user in users
@@ -21,7 +22,9 @@ script(src="javascript/admin.js")
                         td #{user.username}
                         td #{user.email}
                         td #{user.first_name} #{user.last_name}
-                        td #{user.birthday};
+                        td #{user.birthday}
+                        td 
+                            a(href="#") 10
                         td #{user.createdAt}
                         td
-                            img(user-id= user.id, src="img/posts/trash.png").delete
+                            img(user-id= user.id, src="img/posts/trash.png").delete.delete-user

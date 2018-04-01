@@ -60,6 +60,14 @@ class PostData extends Data {
             order: [['createdAt', 'DESC']],
             limit: howManyPosts,
             offset: offset,
+            raw: true,
+        });
+    }
+
+    getAllPosts() {
+        return this.Model.findAll({
+            raw: true,
+            order: [['createdAt', 'DESC']],
         });
     }
 

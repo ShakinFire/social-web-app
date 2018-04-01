@@ -118,9 +118,6 @@ class UsersController {
     async getAllUsers() {
         const users = await this.data.user.getAllUsers();
         return users.map((user) => {
-            user = user.get({
-                plain: true,
-            });
             delete user.password;
             return user;
         });

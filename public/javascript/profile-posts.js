@@ -23,7 +23,7 @@ $(function() {
         });
     })();
 
-    (function showPostLikes() {
+    (function showPostComments() {
 
         function send(id) {
             $.ajax({
@@ -31,7 +31,7 @@ $(function() {
                 method: 'GET',
                 success:
                     function(response) {
-                        $modal = $('#comments-modal');
+                        var $modal = $('#comments-modal');
                         $modal.find('.modal-body').html(response);
                         $modal.modal('toggle');
                     },
@@ -40,15 +40,14 @@ $(function() {
                         console.log(err);
                     }
             });
-        }
+        };
 
-        var $link = $('#show-comments');
-        var postId = $link.attr("post-id");
-
-        $link.on("click", function(event) {
+        $('.chosen-tab-context .show-comments').on("click", function(event) {
             event.preventDefault();
 
-            // Sending an AJAX to get all the users who liked the post.
+            var postId = $(this).attr("post-id");
+
+            // Sending an AJAX to get all comments associated with the post.
             send(postId);
         });
     })();

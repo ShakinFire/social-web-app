@@ -145,15 +145,12 @@ class PostController {
         }
     }
 
-    async getPostsByUser(userId, offset = 0, howManyPosts = 10) {
-        const posts =
-            await this.data.post.getPostsByUser(userId, offset, howManyPosts);
-        return posts.map( async (post) => {
-            post = post.get({
-                plain: true,
-            });
-            return post;
-        });
+    deletePostById(postId) {
+        this.data.post.deletePostByPostId(postId);
+    }
+
+    getPostsByUser(userId, offset = 0, howManyPosts = 10) {
+       return this.data.post.getPostsByUser(userId, offset, howManyPosts);
     }
 
     async getPostComments(postId) {
@@ -175,11 +172,13 @@ class PostController {
     }
 
     async getAllPosts() {
-        const posts = await this.data.post.findAll();
-        posts.map((post) => post.get({
-            plain: true,
-        }));
-        return posts;
+        const posts = await this.data.post.getAllPosts();
+        return posts.map( async (post) => {
+            const author = await this.data.user.getById(post.UserId);
+            delete author.password;
+            post.author = author;
+            return post;
+        });
     }
 }
 

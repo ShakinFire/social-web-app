@@ -1,1 +1,42 @@
-h1 posts here.
+link(rel="stylesheet", type="text/css" href="stylesheets/profile-posts.css")
+script(src="javascript/admin.js")
+
+.container
+    .form#search-posts
+        .input-group
+            input#search-box.form-control(type="text", placeholder="Search through the posts by entering the author's first or last name / username e.g michael@hotmail.com...")
+            .input-group-btn
+                button.btn.btn-default(type='submit')
+                    i.glyphicon.glyphicon-search
+    .table-responsive
+        table.table
+            thead
+                tr
+                    th Post ID
+                    th Post content
+                    th Likes
+                    th Comments
+                    th Date
+                    th Author name & username
+                    th Profile pic
+                    th Delete
+            tbody
+                each post in posts
+                    tr.single-post-row
+                        td #{post.id}
+                        td
+                            span #{post.post_content}
+                        td #{post.total_likes}
+                        td (
+                            a.total-comments(href="") #{post.total_comments}
+                            | )
+                        td
+                            a(href="#" data-toggle="tooltip", title= post.createdAt ) Date
+                        td #{post.author.first_name} #{post.author.last_name} &nbsp;
+                            | (
+                            a(href="#") #{post.author.username}
+                            | )
+                        td
+                            img.profile-pic-small(src= post.author.profile_pic)
+                        td
+                            img(post-id= post.id, src="img/posts/trash.png").delete.delete-post

@@ -26,6 +26,7 @@ $(function () {
 
                         var shouldUpdateNavImg = (targetImg === 'profile') ? true : false;
                         if (shouldUpdateNavImg) {
+                            var $profileImgAsBtn = $('.profile-img-as-btn');
                             $profileImgAsBtn.css('background-image', "url('" + response + "')");
                         }
                     },

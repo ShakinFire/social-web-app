@@ -18,6 +18,7 @@ class UserData extends Data {
                     [Op.ne]: 1,
                 },
             },
+            raw: true,
         });
     }
 

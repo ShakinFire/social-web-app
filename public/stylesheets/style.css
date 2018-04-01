@@ -526,6 +526,12 @@ header nav a:hover {
   opacity: 1;
 }
 
+.profile-logged-main .chosen-tab-context #search-posts {
+  width: 95%;
+  padding-top: 15px;
+  padding-bottom: 15px; 
+}
+
 .profile-pic-small {
   width: 33px;
   height: 33px;
