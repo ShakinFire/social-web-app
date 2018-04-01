@@ -173,6 +173,14 @@ class PostController {
             return comment;
         });
     }
+
+    async getAllPosts() {
+        const posts = await this.data.post.findAll();
+        posts.map((post) => post.get({
+            plain: true,
+        }));
+        return posts;
+    }
 }
 
 module.exports = PostController;

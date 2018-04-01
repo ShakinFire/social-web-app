@@ -497,7 +497,39 @@ header nav a:hover {
   display: none;
 }
 
-/* TO-DO: Add media queries for mobile devices. (profile image) */
+/* ================================= ADMIN LOGGED-IN ================================= */
+
+.profile-logged-main .container-top .nav-admin-horizontal {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.profile-logged-main .chosen-tab-context .table {
+  width: 97%;
+  display: table;
+}
+
+.profile-logged-main .chosen-tab-context .table td {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.profile-logged-main .chosen-tab-context .table .single-user-row {
+  vertical-align: middle;
+}
+
+.profile-logged-main .chosen-tab-context .table td .delete {
+  opacity: 0.5;
+}
+
+.profile-logged-main .chosen-tab-context .table td .delete:hover {
+  opacity: 1;
+}
+
+.profile-pic-small {
+  width: 33px;
+  height: 33px;
+}
 
 /* ================================= PROFILE-LOGGED-IN-HOME ================================= */
 

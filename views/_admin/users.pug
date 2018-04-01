@@ -1,0 +1,27 @@
+script(src="javascript/admin.js")
+.container
+    .table-responsive
+        table.table
+            thead
+                tr
+                    th ID
+                    th Profile pic
+                    th Username
+                    th Email
+                    th Full name
+                    th Birthday
+                    th Date of registration
+                    th Delete
+            tbody
+                each user in users
+                    tr.single-user-row
+                        td #{user.id}
+                        td
+                            img.profile-pic-small(src= user.profile_pic)
+                        td #{user.username}
+                        td #{user.email}
+                        td #{user.first_name} #{user.last_name}
+                        td #{user.birthday};
+                        td #{user.createdAt}
+                        td
+                            img(user-id= user.id, src="img/posts/trash.png").delete

@@ -1,0 +1,23 @@
+extends ./_shared/master
+include ./_shared/nav-logged
+
+append scripts
+    script(src="javascript/profile-menu.js")
+    script(src="javascript/profile-nav.js")
+
+block nav-inner-right
+    +nav-logged()
+
+block content
+    div.container.profile-logged-main
+        div.container-top
+            div.nav-admin-horizontal
+                ul.nav.nav-tabs.nav-justified
+                    li.active(name='users')
+                        a(href='#') Users
+                    li(role='presentation', name='posts')
+                        a(href='#') Posts
+                    li(role='presentation', name='something-else')
+                        a(href='#') Something else
+        div.chosen-tab-context
+            include ./_admin/users

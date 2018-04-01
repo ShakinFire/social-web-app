@@ -11,6 +11,24 @@ class UserData extends Data {
         super(userModel);
     }
 
+    getAllUsers() {
+        return this.Model.findAll({
+            where: {
+                'id': {
+                    [Op.ne]: 1,
+                },
+            },
+        });
+    }
+
+    deleteUserById(id) {
+        return this.Model.destroy({
+            where: {
+                'id': id,
+            },
+        });
+    }
+
     getUserByUsername(username) {
         return this.Model.findOne({
             where: {

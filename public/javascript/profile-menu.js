@@ -1,18 +1,23 @@
 /* eslint-disable */
 
 $(function () {
-    function getInformation(resource) {
-        informationContainer = $('.chosen-tab-context').load('profile/' + resource);
+    function getInformation(page, resource) {
+        informationContainer = $('.chosen-tab-context').load(page + '/' + resource);
     };
 
-    (function showActiveTab() {
-        var navHorizontal = $('.nav-profile-horizontal');
-        navHorizontal.find('li').on('click', function (event) {
-            navHorizontal.find('li.active').removeClass('active');
+    function showActiveTab($nav, page) {
+        $nav.find('li').on('click', function (event) {
+            $nav.find('li.active').removeClass('active');
             $(this).addClass('active');
 
             var requestedResource = $(this).attr('name');
-            getInformation(requestedResource);
+            getInformation(page, requestedResource);
         });
-    })();
+    };
+
+    var $profileNav = $('.nav-profile-horizontal');
+    showActiveTab($profileNav, 'profile');
+
+    var $adminNav = $('.nav-admin-horizontal');
+    showActiveTab($adminNav, 'admin');
 });
