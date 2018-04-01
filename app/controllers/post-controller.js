@@ -123,10 +123,9 @@ class PostController {
             return false;
         }
 
-        const currentUser = await user;
         const postToCreate = {
             post_content: postInfo,
-            UserId: currentUser.id,
+            UserId: user.id,
             total_likes: 0,
             total_comments: 0,
         };

@@ -47,7 +47,6 @@ class UserData extends Data {
     }
 
     checkIfLiked(postId, userId) {
-        console.log(userId);
         return this.Model.findOne({
             where: {
                 id: userId,
