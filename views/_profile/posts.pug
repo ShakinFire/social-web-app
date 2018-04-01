@@ -1,1 +1,27 @@
-h1 Posts will be shown here. 
+link(rel="stylesheet", type="text/css" href="stylesheets/profile-posts.css")
+script(src="javascript/profile-posts.js")
+
+.container
+    #comments-modal.modal.fade(role='dialog')
+        .modal-dialog.modal-md
+            .modal-content
+                .modal-body
+
+.posts-container
+    each post in posts
+        .container.single-post-container
+            .row
+                .col-md-8
+                    p.post-content= post.post_content
+                    i.glyphicon.glyphicon-thumbs-up
+                    p.total-likes Total likes(
+                        a(href="#", post-id= post.id)#show-likes #{post.total_likes}
+                        | ) | &nbsp;
+                    i.glyphicon.glyphicon-comment
+                    p.total-comments Total comments(
+                        a(href="", post-id= post.id)#show-comments #{post.total_comments}
+                        | ) &nbsp;
+                .col-md-2.post-date
+                    p= post.createdAt
+                .col-md-2.post-delete(post-id= post.id)
+                    img.img-responsive.pull-right(src="img/posts/trash.png")

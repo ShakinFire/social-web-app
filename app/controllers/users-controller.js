@@ -89,6 +89,7 @@ class UsersController {
     }
 
     async _updateProfilePassword(userInstance, dataSubmitted) {
+        // in case the user hasn't submitted new password /its empty by default/
         if (dataSubmitted.password === '') {
             return;
         }

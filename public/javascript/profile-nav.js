@@ -1,8 +1,8 @@
 $(function() {
-    $dropdown = $('.dropdown');
-    $menuList = $dropdown.find(' .dropdown-menu');
-    $profileImgAsBtn = $dropdown.find(' .profile-img-as-btn');
-    $caret = $dropdown.find(' .caret');
+    var $dropdown = $('.dropdown');
+    var $menuList = $dropdown.find(' .dropdown-menu');
+    var $profileImgAsBtn = $dropdown.find(' .profile-img-as-btn');
+    var $caret = $dropdown.find(' .caret');
 
     $caret.on('click', function(event) {
         $menuList.toggle(150);

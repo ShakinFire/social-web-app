@@ -2,6 +2,7 @@ const Router = require('express').Router;
 const router = new Router();
 
 const UsersController = require('../controllers/users-controller');
+const PostController = require('../controllers/post-controller');
 
 const isLoggedIn = (req, res, next) => {
     if (req.isAuthenticated()) {
@@ -14,18 +15,48 @@ const isLoggedIn = (req, res, next) => {
 router.use(isLoggedIn);
 
 const init = (app, data) => {
-    const controller = new UsersController(data);
+    const usersController = new UsersController(data);
+    const postsController = new PostController(data);
+
     router
         .get('/', (req, res) => {
             res.render('profile-logged', req.user);
         })
         .get('/home', (req, res) => {
-            console.log(req.user);
             res.render('_profile/home', req.user);
         })
-        .get('/posts', (req, res) => {
-            res.render('_profile/posts');
+
+        .get('/posts', async (req, res) => {
+            const posts = await Promise.all(
+                    await postsController.getPostsByUser(req.user.id));
+            res.render('_profile/posts', { posts: posts });
         })
+        .get('/posts/:id/comments', async (req, res) => {
+            const {
+                id,
+            } = req.params;
+            let context = await postsController.getPostComments(id);
+            context = await Promise.all(context);
+            res.render('_profile/_comments.pug', { comments: context });
+        })
+        .post('/posts/more/:numberOfPosts', (req, res) => {
+            // const numberOfPosts = +req.url.split('/').pop();
+            // TO-DO: Call template with number of posts.
+        })
+        .post('/posts/delete/:id', async (req, res) => {
+            const {
+                id,
+            } = req.params;
+            const response =
+                await postsController.deletePostByUser(req.user.id, id);
+            if (response instanceof Error) {
+                res.status(401);
+                res.send(response.message);
+            } else {
+                res.send('Successfully deleted.');
+            }
+        })
+
         .get('/settings', (req, res) => {
             res.render('_profile/settings', req.user);
         })
@@ -40,7 +71,7 @@ const init = (app, data) => {
         })
         .post('/update', async (req, res) => {
             const response =
-                await controller.updateProfileInfo(req.user.id, req.body);
+                await usersController.updateProfileInfo(req.user.id, req.body);
             if (response instanceof Error) {
                 res.status(400);
                 res.send(response.message);
@@ -50,7 +81,7 @@ const init = (app, data) => {
         })
         .post('/upload', async (req, res) => {
             try {
-                await controller.updateImg(req);
+                await usersController.updateImg(req);
                 res.send('uploads/' + req.file.filename);
             } catch (err) {
                 console.log(err);

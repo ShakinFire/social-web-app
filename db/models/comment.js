@@ -13,12 +13,12 @@ module.exports = (sequelize, DataTypes) => {
       Post,
     } = models;
 
-    Comment.belongsTo(Post, {
-      foreignKey: {
-        allowNull: false,
-      },
-      onDelete: 'CASCADE',
-    });
+    // Comment.belongsTo(Post, {
+    //   foreignKey: {
+    //     allowNull: false,
+    //   },
+    //   onDelete: 'CASCADE',
+    // });
   };
   return Comment;
 };

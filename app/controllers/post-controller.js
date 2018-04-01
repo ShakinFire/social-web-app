@@ -113,7 +113,7 @@ class PostController {
         const year = dmy[0].substring(3, 5);
         const hms = currentDate[1].split(':'); // hour-minute-secound
         const result =
-        `${this._getMonth(dmy[1])} ${dmy[2]}'${year} at ${hms[0]}:${hms[1]}`;
+            `${this._getMonth(dmy[1])} ${dmy[2]}'${year} at ${hms[0]}:${hms[1]}`;
 
         return result;
     }
@@ -134,6 +134,44 @@ class PostController {
         const currentPost = await this.data.post.createCol(postToCreate);
         currentPost.date = await this._getDate(currentPost);
         return currentPost;
+    }
+
+    async deletePostByUser(userId, postId) {
+        const post = await this.data.post.getById(+postId);
+        if (post.UserId !== +userId) {
+            throw new Error('You are not authorized to delete the post.');
+        } else {
+            return this.data.post.deletePostByPostId(+postId);
+        }
+    }
+
+    async getPostsByUser(userId, offset = 0, howManyPosts = 10) {
+        const posts =
+            await this.data.post.getPostsByUser(userId, offset, howManyPosts);
+        return posts.map( async (post) => {
+            post = post.get({
+                plain: true,
+            });
+            return post;
+        });
+    }
+
+    async getPostComments(postId) {
+        const post = await this.data.post.getById(+postId);
+        const comments = await post.getComments();
+        return comments.map(async (comment) => {
+            comment = comment.get({
+                plain: true,
+            });
+            let authorInfo =
+                await this.data.user.getById(comment.UserId);
+            authorInfo = authorInfo.get({
+                plain: true,
+            });
+            delete authorInfo.password;
+            comment.author = authorInfo;
+            return comment;
+        });
     }
 }
 

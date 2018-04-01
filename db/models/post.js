@@ -15,7 +15,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   Post.associate = function(models) {
-    // associations can be defined here
+    const {
+      Comment,
+      Post,
+    } = models;
+
+    Post.hasMany(Comment, {
+      foreignKey: {
+        allowNull: false,
+      },
+      onDelete: 'CASCADE',
+    });
   };
   return Post;
 };

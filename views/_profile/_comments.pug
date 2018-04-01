@@ -1,0 +1,13 @@
+each comment in comments
+    div.row.single-comment-wrapper
+        div.col-lg-1
+            a(href="/profile/" + comment.author.username)
+                img(src=comment.author.profile_pic).comment-profile-img
+        div.col-lg-8
+            p.user-comment
+                a(href="/profile/" + comment.author.username).username-place
+                    | #{comment.author.username} 
+                span.comment_content #{comment.comment_content}
+        div.col-lg-2
+            p.comment-date
+                | #{comment.createdAt}

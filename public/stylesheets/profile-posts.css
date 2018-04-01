@@ -1,0 +1,43 @@
+.single-post-container {
+    position: relative;
+    width: 80%;
+    height: auto;
+    background-color: #eeeeee;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.single-post-container .row .post-content {
+    padding-bottom: 5%;
+}
+
+.single-post-container .row .total-likes {
+    display: inline-block;
+}
+
+.single-post-container .row .total-comments {
+    display: inline-block;
+}
+.single-post-container .row .post-date {
+    display: flex;
+    align-items: center;
+}
+
+.single-post-container .row .post-delete img {
+    opacity: 0.5;
+}
+
+.single-post-container .row .post-delete img:hover {
+    opacity: 1;
+}
+
+.single-comment-wrapper {
+    margin-bottom: 3%;
+}
+
+.single-comment-wrapper .comment-profile-img {
+    border-radius: 3px;
+    width: 33px;
+    height: 33px;
+}

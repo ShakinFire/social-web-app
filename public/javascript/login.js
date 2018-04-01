@@ -19,7 +19,7 @@ $(function() {
         // TO-DO: Client-side validation.
     }
 
-    $form = $('.login-form');
+    var $form = $('.login-form');
     $form.on(" submit ", function(event) {
         event.preventDefault();
 

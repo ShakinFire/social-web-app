@@ -13,7 +13,7 @@ div.col-md-offset-3.col-md-6
             p Update the information in your profile...
         div.form-group.form-group-row
             div.col-md-6
-                input.form-control(type="text", name="first_name" placeholder="First name", value= first_name)
+               input.form-control(type="text", name="first_name" placeholder="First name", value= first_name)
             div.col-md-6
                 input.form-control(type="text", name="last_name" placeholder="Last name", value= last_name)
         div.form-group.form-group-row
@@ -29,14 +29,23 @@ div.col-md-offset-3.col-md-6
         div.form-group.form-group-row
             div.col-md-12
                 span.help-block Change email
-                input.form-control(type="text", name="email", placeholder= email)
+                div.input-group
+                    span.input-group-addon
+                        i.glyphicon.glyphicon-envelope
+                    input.form-control(type="text", name="email", placeholder= email)
         hr
         div.form-group
             div.col-md-12
                 span.help-block Change password?
-                input.form-control(type="password", name="password")
+                div.input-group
+                    span.input-group-addon
+                        i.glyphicon.glyphicon-lock
+                    input.form-control(type="password", name="password")
                 span.help-block Repeat the password.
-                input.form-control(type="password", name="password")
+                div.input-group
+                    span.input-group-addon
+                        i.glyphicon.glyphicon-lock
+                    input.form-control(type="password", name="password")
         hr
         div.form-group
             div.col-md-offset-2.col-md-8

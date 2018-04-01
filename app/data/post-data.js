@@ -51,6 +51,25 @@ class PostData extends Data {
             where: { id: postId },
         });
     }
+
+    getPostsByUser(userId, offset, howManyPosts) {
+        return this.Model.findAll({
+            where: {
+                'userId': userId,
+            },
+            order: [['createdAt', 'DESC']],
+            limit: howManyPosts,
+            offset: offset,
+        });
+    }
+
+    deletePostByPostId(postId) {
+        return this.Model.destroy({
+            where: {
+                'id': postId,
+            },
+        });
+    }
 }
 
 module.exports = PostData;
