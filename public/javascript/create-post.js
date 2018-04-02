@@ -4,10 +4,15 @@ $(function() {
             url: '/',
             method: 'POST',
             data: { content: textContent },
-            success: function(response) {
-                $('#post-message').val('');
-                $('#all-posts-wrapper').prepend(response);
-            }
+            success:
+                function(response) {
+                    $('#post-message').val('');
+                    $('#all-posts-wrapper').prepend(response);
+                },
+            error:
+                function(err) {
+                    showAlert(err.responseText);
+                }
         });
     }
 

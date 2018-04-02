@@ -8,14 +8,19 @@ $(function () {
                 content: textContent,
                 id: postId,
             },
-            success: function(response) {
-                if (response) {
-                    $this.val('');
-                    $this.parent().prepend(response);
-                    var number = +$commentCount.html().replace(/([A-Za-z()])+/g, '');
-                    $commentCount.html('Comment(' + (number + 1) + ')');
-                }
-            }
+            success:
+                function(response) {
+                    if (response) {
+                        $this.val('');
+                        $this.parent().prepend(response);
+                        var number = +$commentCount.html().replace(/([A-Za-z()])+/g, '');
+                        $commentCount.html('Comment(' + (number + 1) + ')');
+                    }
+                },
+            error:
+                function(err) {
+                    showAlert(err.responseText);
+                },
         });
     }
 

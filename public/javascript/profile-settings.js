@@ -31,7 +31,10 @@ $(function () {
                         }
                     },
                 error: function (err) {
-                    console.log(err);
+                    showAlert(err.responseText);
+                    $imgToBeChanged.parent().addClass('profile-image-hover');
+                    $imgToBeChanged.parent().addClass('cover-image-hover');
+                    $imgToBeChanged.show();
                 }
             });
         };

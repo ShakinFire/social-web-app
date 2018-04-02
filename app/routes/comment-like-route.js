@@ -29,8 +29,9 @@ const init = (app, data) => {
 
     app.post('/comment', async (req, res) => {
         if (req.user) {
-            const comment = await CommentController.submitComment(req.body, req.user);
-            if (comment) {
+            try {
+                const comment =
+                    await CommentController.submitComment(req.body, req.user);
                 const user = req.user;
                 const context = {
                     comment,
@@ -38,8 +39,9 @@ const init = (app, data) => {
                     condition: false,
                 };
                 res.render('comments/comment-block', context);
-            } else {
-                res.send(false);
+            } catch (err) {
+                res.status(400);
+                res.send(err.message);
             }
         } else {
             res.redirect('/');

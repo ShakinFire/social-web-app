@@ -1,14 +1,19 @@
+const GenericValidator = require('./validators/generic-validator');
+
 class CommentController {
     constructor(data) {
         this.data = data;
+        this.check = new GenericValidator();
     }
 
     async submitComment(obj, user) {
         const postId = +obj.id;
-        const content = obj.content;
+        let content = obj.content;
+
+        content = this.check.escapeHtml(content);
 
         if (content.length === 0) {
-            return false;
+            throw new Error('You cannot submit a comment with 0 characters.');
         }
 
         await this.data.post.totalCommentsIncrement(postId);

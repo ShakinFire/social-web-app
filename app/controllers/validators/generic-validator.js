@@ -1,9 +1,16 @@
 class GenericValidator {
-    constructor() {
-    }
+    constructor() {}
 
-    isGoodAtAll(target) {
-        return true;
+    escapeHtml(target) {
+        target
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot')
+            .replace(/'/g, '&#39');
+        return target;
+        // returning the unmodified string on purpose.
+        // pug already escapes the html when compiling
+        // TO-DO: It still goes in the database. Fix it.
     }
 
     isEmail(target) {
@@ -11,7 +18,7 @@ class GenericValidator {
             email,
         } = target;
 
-        const regExEmail = RegExp('/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/');
+        const regExEmail = RegExp(/([^A-Za-z0-9-_@.])+/gi);
 
         if (regExEmail.test(email)) {
             throw new Error('The email contains forbidden characters.');
@@ -29,8 +36,8 @@ class GenericValidator {
         } = target;
 
         if (!(4 < password.length && password.length < 31)) {
-            throw new Error('The password is too short'
-             + 'Its length should be between 5 and 30 characters.');
+            throw new Error('The password is too short' +
+                'Its length should be between 5 and 30 characters.');
         }
         return true;
     }
@@ -40,11 +47,13 @@ class GenericValidator {
             username,
         } = target;
 
+        this.escapeHtml(username);
+
         if (!(2 < username.length && username.length < 31)) {
             throw new Error('Username\'s length should be between 3 and 30 characters');
         }
 
-        const regExUser = RegExp('/([^A-Za-z0-9-_])+/gi');
+        const regExUser = RegExp(/([^A-Za-z0-9-_])+/gi);
         if (regExUser.test(username)) {
             throw new Error('The username contains forbidden characters.');
         }

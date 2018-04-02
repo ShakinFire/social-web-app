@@ -1,6 +1,9 @@
+const GenericValidator = require('./validators/generic-validator');
+
 class PostController {
     constructor(data) {
         this.data = data;
+        this.check = new GenericValidator();
     }
 
     isLoggedIn(user) {
@@ -119,8 +122,10 @@ class PostController {
     }
 
     async createPost(postInfo, user) {
+        // postInfo = this.check.escapeHtml(postInfo);
+
         if (postInfo.length === 0) {
-            return false;
+            throw new Error('You cannot submit a post with 0 characters');
         }
 
         const postToCreate = {
