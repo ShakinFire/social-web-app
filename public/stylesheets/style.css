@@ -630,7 +630,7 @@ footer .footer-contact-us a {
 
 footer .footer-icons {
   display: flex;
-  justify-content: center;
+  justify-content: right;
   margin-bottom: 20px;
   margin-right: 25px;
 }
@@ -656,4 +656,20 @@ footer .bottom-line {
 
 footer .copy-right {
   margin-top: 15px;
+}
+
+/* ================== MEDIA QUERIES ============================ */
+
+@media (max-width: 760px) {
+  body {
+    padding-bottom: 28.1rem;
+  }
+
+  footer .footer-icons {
+    justify-content: center;
+  }
+
+  footer .footer-contact-us {
+    text-align: center;
+  }
 }
