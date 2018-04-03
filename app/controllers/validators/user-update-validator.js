@@ -25,7 +25,7 @@ class UserUpdateValidator extends GenericValidator {
                 'First name\'s length should not be more than 30 characters');
         }
 
-        const regExName = RegExp(/([^A-Za-z])+/gi);
+        const regExName = RegExp('/([^A-Za-z])+/gi');
         if (regExName.test(firstName)) {
             throw new Error('Your first name contains forbidden characters.');
         }
@@ -42,7 +42,7 @@ class UserUpdateValidator extends GenericValidator {
                 'Last name\'s length should not be more than 30 characters');
         }
 
-        const regExName = RegExp(/([^A-Za-z])+/gi);
+        const regExName = RegExp('/([^A-Za-z])+/gi');
         if (regExName.test(lastName)) {
             throw new Error('Your last name contains forbidden characters.');
         }
@@ -55,7 +55,7 @@ class UserUpdateValidator extends GenericValidator {
         } = data;
         birthday = this.escapeHtml(birthday);
 
-        const regExDate = RegExp(/([^A-Za-z0-9-_])+/gi);
+        const regExDate = RegExp('/([^A-Za-z0-9-_])+/gi');
         if (regExDate.test(birthday)) {
             throw new Error('You\'re trying to submit invalid birthday date.');
         }

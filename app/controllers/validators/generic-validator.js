@@ -18,7 +18,7 @@ class GenericValidator {
             email,
         } = target;
 
-        const regExEmail = RegExp(/([^A-Za-z0-9-_@.])+/gi);
+        const regExEmail = RegExp('/([^A-Za-z0-9-_@.])+/gi');
 
         if (regExEmail.test(email)) {
             throw new Error('The email contains forbidden characters.');
@@ -53,7 +53,7 @@ class GenericValidator {
             throw new Error('Username\'s length should be between 3 and 30 characters');
         }
 
-        const regExUser = RegExp(/([^A-Za-z0-9-_])+/gi);
+        const regExUser = RegExp('/([^A-Za-z0-9-_])+/gi');
         if (regExUser.test(username)) {
             throw new Error('The username contains forbidden characters.');
         }

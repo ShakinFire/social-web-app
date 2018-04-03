@@ -16,8 +16,21 @@ $(function() {
         });
     };
 
-    function isValid() {
-        // TO-DO: Client-side validation.
+    function isValid($formGiven) {
+        var username = $formGiven.find('input[name="username"]').val();
+        var password = $formGiven.find('input[name="password"]').val();
+        var email = $formGiven.find('input[name="email"]').val();
+        
+        try {
+            validate.isUsernameCorrect(username);
+            validate.isPasswordCorrect(password);
+            validate.isEmail(email);
+            return true;
+        } catch (err) {
+            showAlert(err.message);
+            return false;
+        }
+
     };
 
     var $form = $('.registration-form');
@@ -25,7 +38,8 @@ $(function() {
     $form.on(" submit ", function(event) {
         event.preventDefault();
 
-        isValid($(this));
-        send($(this));
+        if (isValid($(this))) {
+            send($(this));
+        }
     });
 });

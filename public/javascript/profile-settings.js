@@ -30,12 +30,13 @@ $(function () {
                             $profileImgAsBtn.css('background-image', "url('" + response + "')");
                         }
                     },
-                error: function (err) {
-                    showAlert(err.responseText);
-                    $imgToBeChanged.parent().addClass('profile-image-hover');
-                    $imgToBeChanged.parent().addClass('cover-image-hover');
-                    $imgToBeChanged.show();
-                }
+                error:
+                    function (err) {
+                        showAlert(err.responseText);
+                        $imgToBeChanged.parent().addClass('profile-image-hover');
+                        $imgToBeChanged.parent().addClass('cover-image-hover');
+                        $imgToBeChanged.show();
+                    },
             });
         };
 
@@ -108,8 +109,24 @@ $(function () {
         }
 
         function isValid($formGiven) {
-            // TO-DO: Client Side validation.
-            return true;
+
+            var firstName = $formGiven.find('input[name="first_name"]').val();
+            var lastName = $formGiven.find('input[name="last_name"]').val();
+            var address = $formGiven.find('input[name="address"]').val();
+            var email = $formGiven.find('input[name="email"]').val()
+            var password = $formGiven.find('input[type="password"]').val();
+
+            try {
+                validate.isFirstNameCorrect(firstName);
+                validate.isLastNameCorrect(lastName);
+                validate.isAddressCorrect(address);
+                validate.isEmail(email);
+                validate.isPasswordCorrect(password);
+                return true;
+            } catch (error) {
+                showAlert(error.message);
+                return false;
+            }
         }
 
         var $form = $('.form-update-info')
@@ -118,8 +135,6 @@ $(function () {
 
             if (isValid($(this))) {
                 send($(this));
-            } else {
-                showAlert('Please, fill all fields in a correct way.');
             }
         });
     }
