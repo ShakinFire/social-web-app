@@ -1,12 +1,11 @@
 $(function () {
     window.validate = (function () {
         function isEmail(email) {
-
             if (email.length === 0) {
                 return true;
             }
 
-            var regExEmail = RegExp(/([^A-Za-z0-9-_@.])+/gi);
+            var regExEmail = new RegExp(/([^A-Za-z0-9-_@.])+/gi);
 
             if (regExEmail.test(email)) {
                 throw new Error('The email contains forbidden characters.');
@@ -27,7 +26,7 @@ $(function () {
                 throw new Error('Username\'s length should be between 3 and 30 characters');
             }
 
-            var regExUser = RegExp('/([^A-Za-z0-9-_])+/gi');
+            var regExUser = new RegExp(/([^A-Za-z0-9-_])+/gi);
             if (regExUser.test(username)) {
                 throw new Error('The username contains forbidden characters.');
             }
@@ -60,7 +59,7 @@ $(function () {
                     'First name\'s length should not be more than 30 characters');
             }
 
-            var regExName = RegExp('/([^A-Za-z ])+/gi');
+            var regExName = new RegExp(/([^A-Za-z ])+/gi);
             if (regExName.test(firstName)) {
                 throw new Error('Your first name contains forbidden characters.');
             }
@@ -79,7 +78,7 @@ $(function () {
                     'Last name\'s length should not be more than 30 characters');
             }
 
-            var regExName = RegExp('/([^A-Za-z ])+/gi');
+            var regExName = new RegExp(/([^A-Za-z ])+/gi);
             if (regExName.test(lastName)) {
                 throw new Error('Your last name contains forbidden characters.');
             }
@@ -91,7 +90,7 @@ $(function () {
                 return true;
             }
 
-            var regExAddress = RegExp(/([^#'"A-Za-z0-9-_, ])+/gi);
+            var regExAddress = new RegExp(/([^#'"A-Za-z0-9-_, ])+/gi);
             if (regExAddress.test(address)) {
                 throw new Error('Your address contains invalid characters');
             }
